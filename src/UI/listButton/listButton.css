@@ -1,0 +1,19 @@
+.listButton {
+    display:block;
+    margin: 3px auto;
+    align-self: center;     
+    transition:200ms;
+    border: solid 1px white;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 20px;
+    width:80%;
+    max-width:400px;
+    background-color: black;
+}
+
+.active {
+    background-color: white;
+    color: black;
+
+}

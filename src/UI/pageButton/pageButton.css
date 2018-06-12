@@ -1,0 +1,27 @@
+.pageButton {
+    display:block;
+    margin: 3px auto;
+    align-self: center;     
+    transition:200ms;
+    border: solid 1px white;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 20px;
+    background-color: black;
+}
+
+.pageButton:disabled {
+    background-color: rgb(175, 175, 175);
+}
+
+.active {
+    background-color: white;
+    color: black;
+
+}
+
+.active {
+    background-color: white;
+    color: black;
+
+}

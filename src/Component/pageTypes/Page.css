@@ -1,0 +1,22 @@
+.Page {
+    position: relative;
+    color: white;
+    height:100vh;
+    z-index: 1000000
+
+}
+
+.header {
+    font-size: 30px;
+    color:rgb(188, 202, 231)
+}
+.question {
+    font-size: 20px;
+    color:rgb(255, 255, 255)
+}
+
+.subtext {
+    font-size: 15px;
+    font-weight:normal; 
+    color:rgb(255, 255, 255)
+}

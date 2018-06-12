@@ -1,0 +1,9 @@
+.imageButton {
+    transition:200ms;
+    display: inline-block !important;
+    opacity: 0.3;
+}       
+
+.active {
+    opacity: 1
+}

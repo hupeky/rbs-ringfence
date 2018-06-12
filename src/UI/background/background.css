@@ -1,0 +1,47 @@
+.screenClip {
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.background {
+    transition:400ms;
+    position:absolute;
+    bottom:0;
+    left:0;
+    min-height:600px;
+    height:100%;
+}
+
+.bonusGradientTop {
+    stop-color:#1A466C;
+}
+
+.bonusGradientBottom {
+    stop-color:#0A1E31;
+}
+
+.normal{
+    opacity:1;
+    
+}
+
+.normalBG {
+    opacity:1;
+    fill: #060910;
+}
+
+.bonus{
+    transition:400ms;
+    opacity:1;
+}
+
+.st2{fill: #FFFFFF;}
+.st3{font-family: 'MyriadPro-Regular';}
+.st4{font-size: 24px;}
+.st6{display: inline;fill:url(#bg_1_);}
+.st7{display: inline;}
+.st8{fill: #E30613;}

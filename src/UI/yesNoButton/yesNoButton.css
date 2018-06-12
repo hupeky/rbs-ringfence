@@ -1,0 +1,20 @@
+.yesNoButton {
+    margin: 5px;
+    height: 80%;
+    width:40%;
+    max-width:100px;
+    height:80px;
+    align-self: center;     
+    transition:200ms;
+    border: solid 1px white;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 20px;
+    background-color: black;
+}
+
+.active {
+    background-color: white;
+    color: black;
+
+}
