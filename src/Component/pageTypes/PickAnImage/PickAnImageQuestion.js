@@ -42,6 +42,7 @@ class PickAnImageQuestion extends Component {
                         } )
                         }
                     </ul>
+
                 </ContentHolder>
                 <ButtonHolder>
                     <PageButton click={() => this.submitListHandler(this.state.selected, label) } buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />

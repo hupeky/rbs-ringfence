@@ -7,14 +7,28 @@ const initialState = {
     currentIndex: 0,
     questionData: {},
     resize: 0,
-    bonusData: {}
+    bonusData: {},
+    isBonus: false,
+    nickname: '',
 }
 
 
 
 const siteReducer = ( state = initialState, action ) => {
     let updatedQuestionData = null
+    let updatedBonusData = null
     switch ( action.type ) {
+        case siteActions.SET_IS_BONUS:
+            return {
+                ...state,
+                isBonus: action.isBonus
+            }
+        case siteActions.SET_NICKNAME:
+            console.log( action.isBonus )
+            return {
+                ...state,
+                nickname: action.nickname
+            }
         case siteActions.SET_NUM_PAGES:
             return {
                 ...state,
@@ -36,6 +50,24 @@ const siteReducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 questionData: updatedQuestionData
+            }
+        case siteActions.SET_BONUS_DATA:
+            updatedBonusData = {...state.bonusData}
+            updatedBonusData[action.bonusData.bonusLabel] = action.bonusData
+            console.log( updatedBonusData )
+            return {
+                ...state,
+                bonusData: updatedBonusData
+            }
+        case siteActions.SET_BONUS_ANSWER:
+            updatedBonusData = {...state.bonusData}
+            console.log( 'updatedBonusData', updatedBonusData )
+            console.log( 'action.bonusLabel', action.bonusLabel )
+            updatedBonusData[action.bonusLabel].bonusCorrect = action.answer
+            console.log( updatedBonusData )
+            return {
+                ...state,
+                bonusData: updatedBonusData
             }
         case siteActions.SET_ANSWER:
             const answer = action.answer

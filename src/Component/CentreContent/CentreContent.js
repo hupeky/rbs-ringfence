@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import classes from './CentreContent.css'
+
 class centreContent extends Component {
     state ={
         marginTop: 0
@@ -28,12 +30,10 @@ class centreContent extends Component {
             this.centreContentHandler()
             this.didOnce = true
         }
-            
-        
     }
     render () {
         return (
-            <section style={{marginTop: this.state.marginTop }} ref={contentWrapper => this.contentWrapper = contentWrapper}>
+            <section className={classes.CentreContent} style={{marginTop: this.state.marginTop }} ref={contentWrapper => this.contentWrapper = contentWrapper}>
                 {this.props.children}
             </section>
         )

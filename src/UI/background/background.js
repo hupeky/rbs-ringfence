@@ -53,7 +53,7 @@ class Background extends Component {
                         <text transform="matrix(1 0 0 1 4501.0044 494.04)" className={[classes.st2 , classes.st3 ,  classes.st4].join(" ") }>4500px</text>
                     </g>
                 </g>
-                <g className={classes.bonus}>
+                <g style={{opacity: this.props.isBonus ? 1 : 0}} className={classes.bonus}>
                     <linearGradient id="bg_1_" gradientUnits="userSpaceOnUse" x1="2490.5" y1="968.3333" x2="2490.5" y2="-193.6512">
                         <stop offset={0} className={classes.bonusGradientTop} />
                         <stop offset={1     } className={classes.bonusGradientBottom}/>
@@ -81,6 +81,7 @@ class Background extends Component {
 
 const mapStateToProps = state => { // map redux state to class props
     return {
+        isBonus: state.isBonus,
         resize: state.resize,
         currentIndex: state.currentIndex,
         numOfPages: state.numOfPages

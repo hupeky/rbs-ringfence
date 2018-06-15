@@ -1,0 +1,15 @@
+.barHolder {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 5%;
+    border: solid 1px white;
+    
+}
+
+.bar {
+    transition:1000ms;
+    width:0;
+    height: 100px;
+    background-color: red;
+}
+

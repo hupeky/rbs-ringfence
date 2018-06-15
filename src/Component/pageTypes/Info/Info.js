@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+
 import PageButton from '../../../UI/pageButton/pageButton'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
@@ -17,6 +18,7 @@ class Info extends Component {
             <React.Fragment>
                 <ContentHolder>
                     <CentreContent>
+                        {this.props.nickname}
                         {info}
                     </CentreContent>
                 </ContentHolder>

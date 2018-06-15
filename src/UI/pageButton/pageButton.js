@@ -31,7 +31,6 @@ class PageButton extends Component {
             <button disabled={this.props.disabled} onClick={() => this.clickHandler()} className={[classes.pageButton, buildClassHandler].join( " " )}>{this.props.buttonLabel}</button>
         )
     }
-
 }
 
 export default PageButton

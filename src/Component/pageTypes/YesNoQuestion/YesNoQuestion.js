@@ -12,6 +12,8 @@ import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
 import PageButton from '../../../UI/pageButton/pageButton'
 import YesNoButton from '../../../UI/yesNoButton/yesNoButton'
 
+import Timer from '../../timer/timer'
+
 class yesNoQuestion extends Component {
     state = {
         selected: this.props.questionData[this.props.label].questionItems.map( ( item ) => {return false} ),
@@ -52,14 +54,29 @@ class yesNoQuestion extends Component {
                 <YesNoButton key={index} label={item.label} active={this.props.questionData[label].questionItems[index].value} />
         } )
     }
+    bonusTimedoutHandler = ( didTimeOut, label, bonusLabel, sliderRef ) => {
+        if ( didTimeOut ) {
+            this.props.setBonusAnswerHandler( false, bonusLabel )
+            this.props.setAnswerHandler( [false], label )
+            sliderRef.slickNext()
+        }
+
+    }
+
     render () {
-        let {title, question, label, preWrong, preRight, answer, sliderRef, buttonLabel} = {...this.props};
+        let current = false;
+        let {title, question, label, preWrong, preRight, answer, sliderRef, buttonLabel, bonusLabel, bonusQuestion} = {...this.props};
 
         let isCorrect = null;
         isCorrect = this.props.questionData[label].isCorrect
 
+        if ( this.props.index === this.props.currentIndex ) {
+            current = true
+        }
+
         return (
             <React.Fragment>
+                {( bonusQuestion && current ) ? <Timer time={this.props.bonusData[bonusLabel].bonusTime} start={current} onTimeOut={( didTimeOut ) => this.bonusTimedoutHandler( didTimeOut, label, bonusLabel,sliderRef )} /> : null}
                 <ContentHolder>
                     <CentreContent>
                         {question ?
@@ -93,13 +110,15 @@ class yesNoQuestion extends Component {
 const mapStateToProps = state => { // map redux state to class props
     return {
         currentIndex: state.currentIndex,
-        questionData: state.questionData
+        questionData: state.questionData,
+        bonusData: state.bonusData,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         setAnswerHandler: ( answer, label ) => dispatch( {type: siteActions.SET_ANSWER, answer: answer, label: label} ),
+        setBonusAnswerHandler: ( answer, bonusLabel ) => dispatch( {type: siteActions.SET_BONUS_ANSWER, answer: answer, bonusLabel: bonusLabel} ),
 
     }
 }

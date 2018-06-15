@@ -3,6 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+body {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+html {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 .src-Component-navBar-___navBar__navBar___oe2KC {
     width: 100%;
     height: 50px;
@@ -12,9 +25,13 @@ body {
 }.src-Component-pageTypes-___Page__Page___eLxbP {
     position: relative;
     color: white;
-    height:100vh;
-    z-index: 1000000
+    height:100%;
+    z-index: 1000000 
 
+}
+
+.src-Component-pageTypes-___Page__input___3HCID {
+    display: inline-block;
 }
 
 .src-Component-pageTypes-___Page__header___Mq9ba {
@@ -32,13 +49,13 @@ body {
     color:rgb(255, 255, 255)
 }.src-Container-PageHolder-___PageHolder__Slider___1WC1S {
     width:100vw;
-    height:100vh;
+    height:100%; 
     overflow:  hidden
 }
 
 .src-Container-PageHolder-___PageHolder__Page___2Ya1W {
     width:100vw;
-    min-height:100vh;
+    height:100%;
     color: white;
 }.src-UI-background-___background__screenClip___2gfUJ {
     width:100vw;
@@ -82,7 +99,7 @@ body {
     -webkit-transition:400ms;
     -o-transition:400ms;
     transition:400ms;
-    opacity:1;
+    opacity:0;
 }
 
 .src-UI-background-___background__st2___1ICNC{fill: #FFFFFF;}
@@ -133,7 +150,11 @@ body {
     margin:0 auto;
     max-width: 600px;
     width: 100%;
+}.src-Component-CentreContent-___CentreContent__CentreContent___29oEl {
+    text-align: center;
 }.src-hoc-buttonHolder-___buttonHolder__buttonHolder___2LGWL {
+    bottom:0px;
+    width:100%;
     text-align: center;
     padding-top:5px;
 }.src-UI-listButton-___listButton__listButton___3GXXY {
@@ -167,7 +188,33 @@ body {
 
 .src-UI-imageButton-___imageButton__active___35q81 {
     opacity: 1
-}.src-UI-yesNoButton-___yesNoButton__yesNoButton___2FQvN {
+}.src-Component-timer-___timer__timer___34ZFg {
+    position:absolute;
+    top: 0;
+    left:0;                                                                                     
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}.src-Component-pageTypes-MissionComplete-___MissionComplete__barHolder___2sau7 {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 5%;
+    border: solid 1px white;
+    
+}
+
+.src-Component-pageTypes-MissionComplete-___MissionComplete__bar___1QN3H {
+    -webkit-transition:1000ms;
+    -o-transition:1000ms;
+    transition:1000ms;
+    width:0;
+    height: 100px;
+    background-color: red;
+}
+
+.src-UI-yesNoButton-___yesNoButton__yesNoButton___2FQvN {
     margin: 5px;
     height: 80%;
     width:40%;
@@ -189,8 +236,4 @@ body {
     background-color: white;
     color: black;
 
-}.src-___App__slick-slide___aGpBi {
-    float: left;
-    height: 100%;
-    min-height: 1px;
 }
