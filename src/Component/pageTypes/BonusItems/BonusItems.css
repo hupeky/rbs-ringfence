@@ -1,0 +1,12 @@
+.bonusHolder {
+    overflow: auto;
+    max-width:350px;
+    text-align:center;
+    margin:0 auto;
+}
+
+.bonusItem {
+    width:50%;
+    padding:0 0%;
+    float:left;
+}

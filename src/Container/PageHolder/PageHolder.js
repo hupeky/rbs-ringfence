@@ -21,6 +21,7 @@ import PickAListQuestion from '../../Component/pageTypes/PickAList/PickAListQues
 import MissionComplete from '../../Component/pageTypes/MissionComplete/MissionComplete'
 import Name from '../../Component/pageTypes/Name/Name'
 import YesNoQuestion from '../../Component/pageTypes/YesNoQuestion/YesNoQuestion'
+import BonusItems from '../../Component/pageTypes/BonusItems/BonusItems'
 
 class PageHolder extends Component {
     state = {
@@ -60,7 +61,8 @@ class PageHolder extends Component {
                 let bonusData = {
                     bonusLabel: page.bonusLabel,
                     bonusTime: page.bonusTime,
-                    bonusCorrect: null
+                    bonusCorrect: null,
+                    icon: page.icon
                 }
                 this.props.setBonusDataHandler( bonusData )
             }
@@ -139,6 +141,8 @@ class PageHolder extends Component {
                     return <MissionComplete {...page} sliderRef={this.slider} index={index} />
                 case 'Name':
                     return <Name {...page} sliderRef={this.slider} index={index} />
+                case 'BonusItems':
+                    return <BonusItems {...page} sliderRef={this.slider} index={index} />
                 default: return <div>default</div>
 
             }

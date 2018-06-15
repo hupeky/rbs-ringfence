@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import * as siteActions from '../../../store/actions/siteActions'
 
 import pageClasses from '../Page.css'
-import classes from './BonusItem.css'
+import classes from './BonusItems.css'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
 import CentreContent from '../../../Component/CentreContent/CentreContent'
@@ -12,9 +12,9 @@ import Timer from '../../../Component/timer/timer'
 
 
 
-const bonusItems  = ( props ) => {
+const bonusItems = ( props ) => {
     const {bonusItem} = {...props}
-    console.log ('percent', bonusItem)
+    console.log( 'percent', bonusItem )
 
     let current = false;
 
@@ -27,18 +27,21 @@ const bonusItems  = ( props ) => {
     }
     return (
         <React.Fragment>
-             {current ? <Timer time={2000} notVisible={true} onTimeOut={onTimeOutHndler} /> : null}
             <ContentHolder>
                 <CentreContent force={props.currentIndex}>
-                {
-                    current ? 
-                        this.props.bonusData.map((item, index) => {
-                            
+                    <div className={classes.bonusHolder}>
+                        {Object.keys( props.bonusData ).map( ( item, index ) => {
+                            let BonusIcon = props.bonusData[item].icon
+                            console.log( BonusIcon )
+                            return (
+                                <div className={classes.bonusItem}>
+                                    < BonusIcon />
+                                </div>
+                            )
                         } )
-                    :
-                    null
-                }
+                        }
 
+                    </div>
                 </CentreContent>
             </ContentHolder>
         </React.Fragment>

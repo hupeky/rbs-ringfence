@@ -1,7 +1,28 @@
+.bonus1 {
+        width: 100%;      
+}
+
+
 .cls1 {
-    fill: none;
-  }
+    fill: #866438;
+}
 
 .cls2 {
-    fill: #fff;
+    fill: #edd2eb;
+}
+
+.cls3 {
+    fill: rgba(43,20,10,0.29);
+}
+
+.cls4 {
+    fill: #b2854b;
+}
+
+.cls5 {
+    fill: #321c0e;
+}
+
+.cls6 {
+    fill: none;
 }
