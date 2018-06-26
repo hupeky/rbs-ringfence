@@ -2,19 +2,36 @@
     margin: 5px;
     height: 80%;
     width:40%;
-    max-width:100px;
-    height:80px;
+    max-width:130px;
+    height:100px;
     align-self: center;     
     transition:200ms;
-    border: solid 1px white;
     border-radius: 10px;
     color: white;
     padding: 5px 20px;
-    background-color: black;
+    background-color: #161646;
+    cursor:pointer;
+    outline: none;
+    border: none;
+    font-size: 20px;
 }
 
 .active {
     background-color: white;
     color: black;
+}
+
+.answer {
+    background-color: rgba(0,0,0,0.15);
+    color: rgba(255, 255, 255, 0.185);
+    cursor:none;
+    cursor:initial;
+
+}
+
+.active.answer {
+    border: solid 1px white;
+    background-color: #6666b3;
+    color: white;
 
 }

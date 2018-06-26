@@ -4,11 +4,21 @@
     padding: 4  0px 5px 0px 5px;
     box-sizing: border-box;
     overflow-y: auto;
+    height: calc(95vh - 60px);
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+    .contentHolder {
+        height: calc(100vh - 130px);
+    }
+  }
+
+  _:-webkit-full-screen, :root .selector { height: calc(100vh - 100px); }
+
 .innerHolder {
+
     text-align:center;
     margin:0 auto;
     max-width: 600px;
-    width: 100%;
+    width: 95%;
 }

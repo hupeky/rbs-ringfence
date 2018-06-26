@@ -16,7 +16,19 @@ class PageButton extends Component {
                 this.props.click()
             }
         }
+    }
 
+    buildLabelHandler () {
+        let label = ''
+        if (this.props.count && !this.props.singleSelect) {
+            label = `${this.props.count} of ${this.props.totalCount} Continue`
+        } else {
+            label = this.props.buttonLabel
+        }
+        if (this.props.disabled === true) {
+            label = 'disabled'
+        }
+        return label
     }
     render () {
         const buildClassHandler = () => {
@@ -28,7 +40,7 @@ class PageButton extends Component {
             }
         }
         return (
-            <button disabled={this.props.disabled} onClick={() => this.clickHandler()} className={[classes.pageButton, buildClassHandler].join( " " )}>{this.props.buttonLabel}</button>
+            <button tabIndex="-1" disabled={this.props.disabled} onClick={() => this.clickHandler()} className={[classes.pageButton, buildClassHandler].join( " " )}>{this.buildLabelHandler()}</button>
         )
     }
 }

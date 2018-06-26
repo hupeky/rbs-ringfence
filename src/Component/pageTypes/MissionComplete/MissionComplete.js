@@ -1,18 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import * as siteActions from '../../../store/actions/siteActions'
-
-import pageClasses from '../Page.css'
-import classes from './MissionComplete.css'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
-import CentreContent from '../../../Component/CentreContent/CentreContent'
-
+import CentreContent from '../../../hoc/CentreContent/CentreContent'
 import Timer from '../../../Component/timer/timer'
+
+import MissionBar from '../../../UI/missionBar/missionBar'
 
 const missionComplete = ( props ) => {
     const {percent} = {...props}
-    console.log ('percent', percent)
 
     let current = false;
 
@@ -25,13 +21,10 @@ const missionComplete = ( props ) => {
     }
     return (
         <React.Fragment>
-             {current ? <Timer time={2000} notVisible={true} onTimeOut={onTimeOutHndler} /> : null}
+            {current ? <Timer time={2500} notVisible={true} onTimeOut={onTimeOutHndler} /> : null}
             <ContentHolder>
-                <CentreContent force={props.currentIndex}>
-                    <p className={classes.subtext}>Mission is {percent} complete</p>
-                    <div className={classes.barHolder}>
-                        <div style={{width: current ? percent : null}} className={classes.bar} />
-                    </div>
+                <CentreContent force={props.currentIndex} centre={props.centreContent}>
+                    <MissionBar current={current} percent={percent}/>
                 </CentreContent>
             </ContentHolder>
         </React.Fragment>
@@ -45,4 +38,4 @@ const mapStateToProps = state => { // map redux state to class props
     }
 }
 
-export default connect( mapStateToProps )( missionComplete ) 
+export default connect( mapStateToProps )( missionComplete )

@@ -1,15 +1,26 @@
-import {connect} from 'react-redux'
+import {Component} from 'react'
+ import {connect} from 'react-redux'
 import * as siteActions from '../../store/actions/siteActions'
 
-const WindowResize = (props) => {
-    window.addEventListener( 'resize', props.triggerWindowResizeEventHandler )
-    return null
-}
+class WindowResize extends Component {
+    componentWillMount () {
+        const windowSize = () => {
+            this.props.triggerWindowResizeEventHandler ( window.innerHeight ) 
+        }
+        window.addEventListener( 'resize', () => windowSize())
+        windowSize()
 
+    }
+    render () {
+        return (
+            null
+        )
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
-        triggerWindowResizeEventHandler: ( ) => dispatch( {type: siteActions.TRIGGER_RESIZE} )
+        triggerWindowResizeEventHandler: ( windowHeight ) => dispatch( {type: siteActions.TRIGGER_RESIZE, windowHeight:windowHeight } )
     }
 }                   
 

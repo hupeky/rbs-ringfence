@@ -1,46 +1,66 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import * as siteActions from '../../../store/actions/siteActions'
 
 import pageClasses from '../Page.css'
 import classes from './BonusItems.css'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
-import CentreContent from '../../../Component/CentreContent/CentreContent'
+import CentreContent from '../../../hoc/CentreContent/CentreContent'
 
 import Timer from '../../../Component/timer/timer'
+import BonusItem from '../../../UI/bonusItem/bonusItem'
+
+import LockIcon from '../../../assets/bonus/lock/lock'
 
 
 
 const bonusItems = ( props ) => {
-    const {bonusItem} = {...props}
-    console.log( 'percent', bonusItem )
+    const {bonusLabel, locked, unlocked} = {...props}
 
     let current = false;
+    let bonusItemsList = [null]
+    let bonusCorrect = null
 
-    if ( props.index === props.currentIndex ) {
-        current = true
+    if ( (props.index === props.currentIndex || props.index === props.currentIndex-1)  ) { // if current is true
+        current = true;
+        bonusItemsList = Object.keys( props.bonusData ).map( ( item, index ) => {
+            if ( props.bonusData[item].bonusCorrect === null ) {
+                return <div key={index} className={classes.bonusItem}><LockIcon /></div>
+            } else {
+                let currentBonus = props.bonusData[item].bonusLabel === bonusLabel
+
+                bonusCorrect = props.bonusData[item].bonusCorrect
+                let BonusIcon = props.bonusData[item].icon
+
+                return <div key={index} className={classes.bonusItem}>
+                    <BonusItem selected={props.bonusData[item].selected} bonusCorrect={props.bonusData[item].bonusCorrect} icon={BonusIcon} label={item} correct={bonusCorrect} current={currentBonus} />
+                </div>
+            }
+        } )
+    } else { // build default lock list
+        bonusItemsList = Object.keys( props.bonusData ).map( ( item, index ) => {return <div key={index} className={classes.bonusItem}><LockIcon /></div>} )
     }
+
+
 
     const onTimeOutHndler = () => {
-        props.sliderRef.slickNext()
+        props.sliderRef.slickNext( 2 )
     }
     return (
-        <React.Fragment>
-            <ContentHolder>
-                <CentreContent force={props.currentIndex}>
-                    <div className={classes.bonusHolder}>
-                        {Object.keys( props.bonusData ).map( ( item, index ) => {
-                            let BonusIcon = props.bonusData[item].icon
-                            console.log( BonusIcon )
-                            return (
-                                <div className={classes.bonusItem}>
-                                    < BonusIcon />
-                                </div>
-                            )
-                        } )
-                        }
 
+        <React.Fragment>
+            {current ? <Timer time={5000} notVisible={true} onTimeOut={onTimeOutHndler} /> : null}
+            <ContentHolder>
+                <CentreContent force={props.currentIndex} centre={props.centreContent}>
+                    <div className={classes.bonusHolder}>
+                        {props.bonusData[bonusLabel].bonusCorrect ?
+                            <React.Fragment>
+                                <h3 className={classes.subTitle} >{unlocked}</h3>
+                            </React.Fragment>
+                            :
+                            <h3 className={classes.subTitle} >{locked}</h3>
+                        }
+                        {bonusItemsList}
                     </div>
                 </CentreContent>
             </ContentHolder>

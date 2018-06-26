@@ -1,26 +1,47 @@
 .Page {
     position: relative;
     color: white;
-    height:100%;
+    height:100vh;
     z-index: 1000000 
-
 }
 
-.input {
-    display: inline-block;
-}
-
-.header {
-    font-size: 30px;
-    color:rgb(188, 202, 231)
-}
 .question {
     font-size: 20px;
     color:rgb(255, 255, 255)
 }
 
-.subtext {
-    font-size: 15px;
-    font-weight:normal; 
-    color:rgb(255, 255, 255)
+input {
+    display: inline-block;
+}
+
+h2 {
+    font-size: 30px; /* main title */
+}
+h3 {
+    font-size: 25px;  /* sub title */
+}
+
+h3.question {
+    font-size: 24px;  /* question */
+}
+h4 {
+    font-size: 17px; /* small title */
+}
+
+p {
+    font-size: 14px; /* paragraph */
+    line-height: 1.5em;
+}
+
+p.subText {
+    margin-top:-10px;
+    font-size: 12px; /* tiny sub line */
+}
+
+.bottomImage  {
+    position:absolute;
+    bottom:-50px;
+    left:0;
+    height:200px;
+    width:100%;
 }

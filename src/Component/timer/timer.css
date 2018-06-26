@@ -1,10 +1,12 @@
 .timer {
     position:absolute;
-    top: 0;
-    left:0;                                                                                     
-    width: 100%;
-    height: 50px;
-    background-color: black;
+    left:calc(50% - 50px);   
+    width:75px;
+    top:10px;                                                      
+    background: linear-gradient( #2F1451 50%, #210E39 51%);
+    border: solid 1px #9013FE;
+    border-radius: 5px;
     color: white;
     text-align: center;
+    padding:10px;
 }

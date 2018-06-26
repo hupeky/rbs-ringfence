@@ -7,11 +7,13 @@ import pageClasses from '../Page.css'
 
 import ListButton from '../../../UI/listButton/listButton'
 import ImageButton from '../../../UI/imageButton/imageButton'
-import Carousel from '../../../UI/Carousel/Carousel'
+
+import Carousel from '../../../Component/Carousel/Carousel'
+import CarouselItem from '../../../UI/carouselItem/carouselItem'
 
 import PageButton from '../../../UI/pageButton/pageButton'
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
-import CentreContent from '../../../Component/CentreContent/CentreContent'
+import CentreContent from '../../../hoc/CentreContent/CentreContent'
 import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
 
 import Timer from '../../timer/timer'
@@ -20,13 +22,16 @@ class pickAList extends Component {
     state = {
         selected: this.props.questionData[this.props.label].questionItems.map( ( item ) => {return false} ),
         funny: false,
-        disabled: 'disabled'
+        disabled: true,
+        totalCount: this.props.questionData[this.props.label].questionItems.reduce( ( acc, cur ) => {return acc = acc + 1}, 0 ),
+        count: 0,
     }
 
-    selectListHandler ( index, items, bonusQuestion, label, bonusLabel ) {
-
+    selectListHandler ( index, items, bonusQuestion, label, bonusLabel, singleSelect ) {
         let updatedFunny = this.state.funny;
         let currentSelected = [...this.state.selected]
+        let count = 0
+
         if ( items[index].funny === true ) {
             updatedFunny = !updatedFunny;
             this.setState( {
@@ -34,33 +39,62 @@ class pickAList extends Component {
             } )
         }
 
-        currentSelected[index] = !currentSelected[index]
-        this.setState( {
-            selected: currentSelected,
-            disabled: false
-        } )
+        if ( singleSelect ) {
+            currentSelected = currentSelected.map( ( item, index ) => false )
+        }
+
+
+        if ( this.props.buttonType === 'carousel' ) {
+            currentSelected = currentSelected.map( ( item, index ) => false )
+            currentSelected[index] = true;
+            this.setState( {
+                selected: currentSelected,
+                disabled: false
+            } )
+
+        } else {
+            currentSelected[index] = !currentSelected[index]
+
+            currentSelected.forEach( item => {
+                if ( item ) {
+                    count++
+                }
+            } )
+
+
+            this.setState( {
+                selected: currentSelected,
+                disabled: false,
+                count: count,
+            } )
+        }
+
 
         if ( bonusQuestion ) {
             let isCorrect = currentSelected.every( ( item, index ) => item === this.props.questionData[label].correctAnswer[index] )
-            console.log( 'isCorrect', isCorrect )
             if ( isCorrect ) {
-                console.log( 'isCorrect', isCorrect )
-                this.props.setBonusAnswerHandler( isCorrect, bonusLabel )
-                this.submitListHandler( currentSelected, label )
+                this.props.setBonusAnswerHandler( currentSelected, label, bonusLabel )
+                this.submitListHandler( currentSelected, label, true )
             }
 
         }
     }
 
-    submitListHandler = ( answer, label ) => {
+    submitListHandler = ( answer, label, correct ) => {
         this.props.setAnswerHandler( answer, label, this.state.funny )
+        console.log ('this.props.item',this.props.item)
+
+        if (this.props.item && correct) {
+            console.log ('false',correct, 'this.props.item', this.props.item )
+            this.props.setItemHandler( label )
+        }
         this.props.sliderRef.slickNext()
     }
 
-    buildPageButtonHandler ( question, label, buttonLabel, sliderRef, bonusQuestion ) {
+    buildPageButtonHandler ( question, label, buttonLabel, sliderRef, bonusQuestion, singleSelect ) {
         let button
         if ( question ) {
-            button = <PageButton disabled={this.state.disabled} click={() => this.submitListHandler( this.state.selected, label )} buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
+            button = <PageButton singleSelect={singleSelect} count={this.state.count} totalCount={this.state.totalCount} disabled={this.state.disabled} click={() => this.submitListHandler( this.state.selected, label, true )} buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
         } else {
             button = <PageButton buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
         }
@@ -74,37 +108,35 @@ class pickAList extends Component {
         switch ( isCorrect ) {
             case true: return (
                 <React.Fragment>
-                    <p>{preRight} </p>
+                    <h3 className={pageClasses.subTitle}>{preRight} </h3>
                     <p>{answer}</p>
                 </React.Fragment>
             )
             case false: return (
                 <React.Fragment>
-                    <p>{preWrong} </p>
+                    <h3 className={pageClasses.subTitle}>{preWrong} </h3>
                     <p>{answer}</p>
                 </React.Fragment>
             )
             case 'funny': return (
                 <React.Fragment>
-                    <p>{preFunny} </p>
-                    <p>{answer}</p>
+                    <p>{preFunny}{answer}</p>
                 </React.Fragment>
             )
-            default: return <p>{answer}</p>
+            default: return <div><h3 className={pageClasses.subTitle}>&nbsp;</h3><p>{answer}</p></div>
         }
     }
 
     bonusTimedoutHandler = ( didTimeOut, label, bonusLabel ) => {
         if ( didTimeOut ) {
-            this.props.setBonusAnswerHandler( false, bonusLabel )
-            this.submitListHandler( this.state.selected, label )
+            this.props.setBonusAnswerHandler( this.state.selected, label, bonusLabel )
+            this.submitListHandler( this.state.selected, label, false)
         }
-
     }
 
     render () {
         let current = false;
-        let {title, question, label, bonusLabel, questionItems, buttonLabel, sliderRef, preWrong, preRight, preFunny, answer, bonusQuestion, buttonType} = {...this.props};
+        let {title, question, label, bonusLabel, questionItems, buttonLabel, sliderRef, preWrong, preRight, preFunny, answer, bonusQuestion, buttonType, singleSelect} = {...this.props};
 
         let isCorrect = null;
         isCorrect = this.props.questionData[label].isCorrect
@@ -134,16 +166,19 @@ class pickAList extends Component {
                 switch ( buttonType ) {
                     case 'list':
                         return question ?
-                            button = <ListButton click={() => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel )} key={index} active={this.state.selected[index]} label={item.label} />
+                            button = <ListButton click={() => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel, singleSelect )} key={index} active={this.state.selected[index]} label={item.label} />
                             :
-                            button = <ListButton key={index} active={this.props.questionData[label].correctAnswer[index]} label={item.label} />
+                            button = <ListButton key={index} answer={true} active={this.props.questionData[label].correctAnswer[index]} label={item.label} />
                     case 'image':
                         return question ?
-                            button = <ImageButton click={() => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel )} columns={buttonColumns} image={item.image} key={index} active={this.state.selected[index]} label={item.label} />
+                            button = <ImageButton click={() => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel, singleSelect )} columns={buttonColumns} image={item.image} key={index} active={this.state.selected[index]} label={item.label} />
                             :
                             button = <ImageButton columns={buttonColumns} image={item.image} key={index} active={this.props.questionData[label].correctAnswer[index]} label={item.label} />
-                    case 'carousel':                
-                        return <img key={index} alt='' src={item.image} />
+                    case 'carousel':
+                        return question ?
+                            <CarouselItem key={index} alt='' image={item.image} label={item.label} />
+                            :
+                            <CarouselItem key={index} alt='' answer={true} active={this.props.questionData[label].correctAnswer[index]} image={item.image} />
                     default:
                         list.push( <p>Sorry error creating buttons</p> )
                         break
@@ -158,17 +193,19 @@ class pickAList extends Component {
             <React.Fragment>
                 {( bonusQuestion && current ) ? <Timer time={this.props.bonusData[bonusLabel].bonusTime} start={current} onTimeOut={( didTimeOut ) => this.bonusTimedoutHandler( didTimeOut, label, bonusLabel )} /> : null}
                 <ContentHolder>
-                    <CentreContent force={this.props.currentIndex}>
-                        <h2>{title}</h2>
-
-                        {question ? <p className={pageClasses} >{question}</p> : null}
+                    <CentreContent force={this.props.currentIndex} centre={this.props.centreContent}>
+                        {this.props.title ? <h2>{this.props.title}</h2> : null}
+                        {this.props.subTitle ? <h3>{this.props.subTitle}</h3> : null}
+                        {this.props.question ? <h3 className={pageClasses.question}>{this.props.question}</h3> : null}
+                        {this.props.subText ? <p className={pageClasses.subText}>{this.props.subText}</p> : null}
+                        {this.props.paragraph ? <p>{this.props.paragraph}</p> : null}
                         {!question ? this.buildAnswerText( preRight, preWrong, preFunny, answer, isCorrect ) : null}
 
-                        {buttonType === 'carousel' ? <Carousel onUpdate={(index) => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel )} > {buildPageButtonsHandler()} </Carousel> : buildPageButtonsHandler() }
+                        {buttonType === 'carousel' ? <Carousel onUpdate={( index ) => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel )} > {buildPageButtonsHandler()} </Carousel> : buildPageButtonsHandler()}
                     </CentreContent>
                 </ContentHolder>
                 <ButtonHolder>
-                    {this.buildPageButtonHandler( question, label, buttonLabel, sliderRef, bonusQuestion )}
+                    {this.buildPageButtonHandler( question, label, buttonLabel, sliderRef, bonusQuestion, singleSelect )}
                 </ButtonHolder>
             </React.Fragment>
         )
@@ -200,8 +237,9 @@ const mapStateToProps = state => { // map redux state to class props
 
 const mapDispatchToProps = dispatch => {
     return {
+        setItemHandler: ( label) => dispatch( {type: siteActions.SET_ITEM, label: label} ),
         setAnswerHandler: ( answer, label, funny ) => dispatch( {type: siteActions.SET_ANSWER, answer: answer, label: label, funny: funny} ),
-        setBonusAnswerHandler: ( answer, bonusLabel ) => dispatch( {type: siteActions.SET_BONUS_ANSWER, answer: answer, bonusLabel: bonusLabel} ),
+        setBonusAnswerHandler: ( answer, label, bonusLabel ) => dispatch( {type: siteActions.SET_BONUS_ANSWER, answer: answer, label: label, bonusLabel: bonusLabel} ),
     }
 }
 

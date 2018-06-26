@@ -26,13 +26,8 @@
 
 .normal{
     opacity:1;
-    
 }
 
-.normalBG {
-    opacity:1;
-    fill: #060910;
-}
 
 .bonus{
     transition:400ms;

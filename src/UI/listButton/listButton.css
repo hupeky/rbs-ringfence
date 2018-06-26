@@ -1,19 +1,37 @@
 .listButton {
     display:block;
-    margin: 3px auto;
+    margin: 10px auto;
     align-self: center;     
     transition:200ms;
-    border: solid 1px white;
-    border-radius: 50px;
+    border-radius: 8px;
+    border:none;
     color: white;
     padding: 5px 20px;
-    width:80%;
-    max-width:400px;
-    background-color: black;
+    width:97%;
+    max-width:450px;
+    background-color: #161646;
+    font-size:14px;
+    line-height:1.5em;
+    cursor:pointer; 
+    outline:none;
 }
 
 .active {
     background-color: white;
     color: black;
+}
+
+.answer {
+    background-color: rgba(0,0,0,0.15);
+    color: rgba(255,255,255,0.3);
+    cursor:none;
+    cursor:initial;
 
 }
+
+.active.answer {
+    border: solid 1px white;
+    background-color: #6666b3;
+    color: white;
+}
+

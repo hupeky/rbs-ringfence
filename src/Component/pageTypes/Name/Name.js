@@ -3,9 +3,10 @@ import {connect} from 'react-redux'
 import * as siteActions from '../../../store/actions/siteActions'
 
 import pageClasses from '../Page.css'
+import classes from './Name.css'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
-import CentreContent from '../../../Component/CentreContent/CentreContent'
+import CentreContent from '../../../hoc/CentreContent/CentreContent'
 
 import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
 import PageButton from '../../../UI/pageButton/pageButton'
@@ -22,8 +23,8 @@ class name extends Component {
     }
 
     submitNameHandler = ( answer, label ) => {
-        this.props.setNameHandler(this.state.value)
-        console.log (this.state.value)
+        this.props.setNameHandler( this.state.value )
+        console.log( this.state.value )
     }
 
 
@@ -32,12 +33,16 @@ class name extends Component {
         return (
             <React.Fragment>
                 <ContentHolder>
-                    <CentreContent force={this.props.currentIndex}>
-                        <form><input className={pageClasses.input} type="text" placeholder={'Enter your nickname'} value={this.state.value} onChange={this.nameChangeHandler} name="nickname" /></form>
+                    <CentreContent force={this.props.currentIndex} centre={this.props.centreContent}>
+                        {this.props.question ? <h3 className={classes.question}>{this.props.question}</h3> : null}
+                        <form>
+                            <input tabIndex="-1" autoComplete="off" className={pageClasses.input} type="text" placeholder={'Enter your nickname'} value={this.state.value} onChange={this.nameChangeHandler} name="nickname" />
+
+                        </form>
                     </CentreContent>
                 </ContentHolder>
                 <ButtonHolder>
-                    <PageButton disabled={this.state.disabled} buttonLabel={buttonLabel} click={() => this.submitNameHandler( )} sliderRef={sliderRef} nextPage={true} />
+                    <PageButton disabled={this.state.disabled} buttonLabel={buttonLabel} click={() => this.submitNameHandler()} sliderRef={sliderRef} nextPage={true} />
                 </ButtonHolder>
 
             </React.Fragment>

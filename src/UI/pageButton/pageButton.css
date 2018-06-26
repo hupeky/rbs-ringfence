@@ -5,23 +5,30 @@
     transition:200ms;
     border: solid 1px white;
     border-radius: 50px;
-    color: white;
-    padding: 5px 20px;
-    background-color: black;
+    color: black;
+    padding: 8px 20px;
+    background-color: white;
+    font-size:10px;
+    text-transform: uppercase;
+    cursor:pointer;
+    outline: none;
+}
+
+
+
+.pageButton:hover {
+    background-color: rgb(204, 234, 236);
 }
 
 .pageButton:disabled {
     background-color: rgb(175, 175, 175);
-}
+    color:white;
+    cursor:not-allowed;
+}   
 
 .active {
-    background-color: white;
-    color: black;
 
-}
-
-.active {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
 
 }

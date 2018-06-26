@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="204.2px" height="109.6px" style="enable-background:new 0 0 204.2 109.6;" xml:space="preserve"
+	>
+<g>
+	<g>
+		
+			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="549.7" y1="834.9" x2="-344.1" y2="834.9" gradientTransform="matrix(1 0 0 1 0 -388)">
+			<stop  offset="0" style="stop-color:#B3C0F6"/>
+			<stop  offset="1" style="stop-color:#5F63C9"/>
+		</linearGradient>
+		<circle id="SVGID_1_" style="fill:url(#SVGID_2_);" cx="102.8" cy="446.9" r="446.9"/>
+	</g>
+	<g>
+		<g>
+			<defs>
+				<circle id="SVGID_3_" cx="102.8" cy="446.9" r="446.9"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			
+				<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="-732.125" y1="427.2" x2="-762.2391" y2="427.2" gradientTransform="matrix(1 0 0 1 0 -388)">
+				<stop  offset="0" style="stop-color:#B3C0F6"/>
+				<stop  offset="1" style="stop-color:#5F63C9"/>
+			</linearGradient>
+			<path style="clip-path:url(#SVGID_4_);fill:url(#SVGID_5_);" d="M-747.2,23.6c-20.1,0-20.1,31.2,0,31.2S-727.1,23.6-747.2,23.6z"
+				/>
+		</g>
+	</g>
+</g>
+<g style="display:none;">
+	<g style="display:inline;">
+		<g>
+			
+				<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="20.406" y1="427.9062" x2="176.394" y2="583.8938" gradientTransform="matrix(1 0 0 1 0 -388)">
+				<stop  offset="0" style="stop-color:#371A68"/>
+				<stop  offset="0.2107" style="stop-color:#3E1F72"/>
+				<stop  offset="0.5677" style="stop-color:#502C8D"/>
+				<stop  offset="1" style="stop-color:#6B3FB5"/>
+			</linearGradient>
+			<circle id="SVGID_28_" style="fill:url(#SVGID_6_);" cx="98.4" cy="117.9" r="110.3"/>
+		</g>
+	</g>
+	<g style="display:inline;">
+		<g>
+			
+				<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="1892.9849" y1="581.0593" x2="1701.9078" y2="470.7407" gradientTransform="matrix(-1 0 0 1 1989.7463 -388)">
+				<stop  offset="0" style="stop-color:#9471B6"/>
+				<stop  offset="0.1784" style="stop-color:#8D67B4"/>
+				<stop  offset="0.4805" style="stop-color:#7A4CAD"/>
+				<stop  offset="0.8672" style="stop-color:#5B21A2"/>
+				<stop  offset="1" style="stop-color:#4F119E"/>
+			</linearGradient>
+			<circle id="SVGID_29_" style="fill:url(#SVGID_7_);" cx="192.3" cy="137.9" r="110.3"/>
+		</g>
+	</g>
+	<g style="display:inline;">
+		<g>
+			
+				<linearGradient id="SVGID_8_" gradientUnits="userSpaceOnUse" x1="2198.5725" y1="581.0591" x2="2007.4954" y2="470.7408" gradientTransform="matrix(1 0 0 1 -2098.2339 -388)">
+				<stop  offset="0" style="stop-color:#9471B6"/>
+				<stop  offset="0.1784" style="stop-color:#8D67B4"/>
+				<stop  offset="0.4805" style="stop-color:#7A4CAD"/>
+				<stop  offset="0.8672" style="stop-color:#5B21A2"/>
+				<stop  offset="1" style="stop-color:#4F119E"/>
+			</linearGradient>
+			<circle id="SVGID_30_" style="fill:url(#SVGID_8_);" cx="4.8" cy="137.9" r="110.3"/>
+		</g>
+	</g>
+	<g style="display:inline;">
+		<g>
+			
+				<linearGradient id="SVGID_9_" gradientUnits="userSpaceOnUse" x1="387" y1="698.5" x2="-181.4" y2="698.5" gradientTransform="matrix(1 0 0 1 0 -388)">
+				<stop  offset="0" style="stop-color:#B664C8"/>
+				<stop  offset="0.2943" style="stop-color:#A45BC3"/>
+				<stop  offset="0.8827" style="stop-color:#7544B8"/>
+				<stop  offset="1" style="stop-color:#6B3FB5"/>
+			</linearGradient>
+			<circle id="SVGID_14_" style="fill:url(#SVGID_9_);" cx="102.8" cy="310.5" r="284.2"/>
+		</g>
+	</g>
+</g>
+</svg>

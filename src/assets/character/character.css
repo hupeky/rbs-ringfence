@@ -1,0 +1,11 @@
+
+.Character {
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+}   
+
+:global(#character) {
+    width: 90%;
+    max-width:300px;
+  }

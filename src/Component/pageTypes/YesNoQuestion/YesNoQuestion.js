@@ -6,7 +6,7 @@ import * as siteActions from '../../../store/actions/siteActions'
 import pageClasses from '../Page.css'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
-import CentreContent from '../../../Component/CentreContent/CentreContent'
+import CentreContent from '../../../hoc/CentreContent/CentreContent'
 
 import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
 import PageButton from '../../../UI/pageButton/pageButton'
@@ -20,43 +20,57 @@ class yesNoQuestion extends Component {
 
     }
 
-    buildQuestionHandler ( title, question ) {
+    buildQuestionHandler ( title, question, subText ) {
         return (
             <React.Fragment>
-                <h2>{title}</h2>
-                <p className={pageClasses} >{question}</p>
+                <h3 className={pageClasses.question} >{question}</h3>
+                <p className={pageClasses.subText} >{subText}</p>
             </React.Fragment>
         )
     }
 
     buildAnswerHandler ( isCorrect, preRight, preWrong, answer ) {
         return (
-            <p>{isCorrect ? preRight : preWrong} {answer}</p>
+            <React.Fragment>
+                <h3>{isCorrect ? preRight : preWrong}</h3>
+                <p>{answer}</p>
+            </React.Fragment>
         )
     }
 
-    selectYesNoHandler = ( answer, label, sliderRef, index ) => {
-        sliderRef.slickNext()
-
-        let currentSelected = this.state.selected.map(item => false)
+    selectYesNoHandler = ( answer, label, sliderRef, index, bonusLabel ) => {
+        let currentSelected = this.state.selected.map( item => false )
         currentSelected[index] = !currentSelected[index]
         this.setState( {selected: currentSelected} )
 
-        console.log( this.state.selected )
+        let isCorrect = this.props.questionData[label].questionItems[index].value === this.props.questionData[label].correctAnswer[0]
+
         this.props.setAnswerHandler( answer, label )
+        if ( bonusLabel ) {
+            this.props.setBonusAnswerHandler( answer, label, bonusLabel )
+            if (this.props.item && isCorrect) {
+                this.props.setItemHandler( label )
+            }
+        } else {
+            if (this.props.item) {
+                this.props.setItemHandler( label )
+            }
+        }
+        sliderRef.slickNext()
+
     }
 
-    buildYesNoNuttonsHandler = (question, label, sliderRef) => {
+    buildYesNoNuttonsHandler = ( question, label, sliderRef, bonusLabel ) => {
         return this.props.questionData[label].questionItems.map( ( item, index ) => {
             return question ?
-                <YesNoButton key={index} label={item.label} active={this.state.selected[index]} click={() => this.selectYesNoHandler( [item.value], label, sliderRef, index )} />
+                <YesNoButton key={index} label={item.label} active={this.state.selected[index]} click={() => this.selectYesNoHandler( [item.value], label, sliderRef, index, bonusLabel )} />
                 :
-                <YesNoButton key={index} label={item.label} active={this.props.questionData[label].questionItems[index].value} />
+                <YesNoButton key={index} answer={true} label={item.label} active={this.props.questionData[label].questionItems[index].value} />
         } )
     }
     bonusTimedoutHandler = ( didTimeOut, label, bonusLabel, sliderRef ) => {
         if ( didTimeOut ) {
-            this.props.setBonusAnswerHandler( false, bonusLabel )
+            this.props.setBonusAnswerHandler( [false], label, bonusLabel )
             this.props.setAnswerHandler( [false], label )
             sliderRef.slickNext()
         }
@@ -65,7 +79,7 @@ class yesNoQuestion extends Component {
 
     render () {
         let current = false;
-        let {title, question, label, preWrong, preRight, answer, sliderRef, buttonLabel, bonusLabel, bonusQuestion} = {...this.props};
+        let {title, question, label, preWrong, preRight, answer, sliderRef, buttonLabel, bonusLabel, bonusQuestion, subText} = {...this.props};
 
         let isCorrect = null;
         isCorrect = this.props.questionData[label].isCorrect
@@ -76,15 +90,15 @@ class yesNoQuestion extends Component {
 
         return (
             <React.Fragment>
-                {( bonusQuestion && current ) ? <Timer time={this.props.bonusData[bonusLabel].bonusTime} start={current} onTimeOut={( didTimeOut ) => this.bonusTimedoutHandler( didTimeOut, label, bonusLabel,sliderRef )} /> : null}
+                {( bonusQuestion && current ) ? <Timer time={this.props.bonusData[bonusLabel].bonusTime} start={current} onTimeOut={( didTimeOut ) => this.bonusTimedoutHandler( didTimeOut, label, bonusLabel, sliderRef )} /> : null}
                 <ContentHolder>
-                    <CentreContent>
+                    <CentreContent centre={this.props.centreContent}>
                         {question ?
-                            this.buildQuestionHandler( title, question )
+                            this.buildQuestionHandler( title, question, subText )
                             :
                             this.buildAnswerHandler( isCorrect, preRight, preWrong, answer )
                         }
-                        {this.buildYesNoNuttonsHandler(question, label, sliderRef)}
+                        {this.buildYesNoNuttonsHandler( question, label, sliderRef, bonusLabel )}
                     </CentreContent>
                 </ContentHolder>
 
@@ -117,8 +131,10 @@ const mapStateToProps = state => { // map redux state to class props
 
 const mapDispatchToProps = dispatch => {
     return {
+        setItemHandler: ( label ) => dispatch( {type: siteActions.SET_ITEM, label: label} ),
         setAnswerHandler: ( answer, label ) => dispatch( {type: siteActions.SET_ANSWER, answer: answer, label: label} ),
-        setBonusAnswerHandler: ( answer, bonusLabel ) => dispatch( {type: siteActions.SET_BONUS_ANSWER, answer: answer, bonusLabel: bonusLabel} ),
+        setBonusAnswerHandler: ( answer, label, bonusLabel ) => dispatch( {type: siteActions.SET_BONUS_ANSWER, answer: answer, label: label, bonusLabel: bonusLabel} ),
+
 
     }
 }

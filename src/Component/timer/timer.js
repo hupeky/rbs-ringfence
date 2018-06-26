@@ -4,17 +4,16 @@ import classes from './timer.css'
 
 class timer extends Component {
     state = {
-        timePassed: 0 
+        timeRemaining: this.props.time
     }
     clock
     componentDidMount () {
         
         const increment = 100
 
-
         this.clock = setInterval(() => {
-            this.setState({timePassed:this.state.timePassed + increment}) 
-            if (this.state.timePassed === this.props.time) {
+            this.setState({timeRemaining:this.state.timeRemaining - increment}) 
+            if (this.state.timeRemaining === 0) {
                 clearTimeout(this.clock);
                 console.log ('time out from timer')
                 this.props.onTimeOut(true)
@@ -28,7 +27,7 @@ class timer extends Component {
     render () {
         
         return (
-            this.props.notVisible ? null : <div className={classes.timer} >{this.state.timePassed}I am a timer {this.props.time}</div>
+            this.props.notVisible ? null : <div className={classes.timer} >00:{(this.state.timeRemaining / 1000).toFixed(1)}</div>
         )
     }
 }

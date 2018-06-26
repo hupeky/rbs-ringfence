@@ -6,7 +6,7 @@ const contentHolder = ( props ) => {
 
     return (
         
-            <div className={classes.contentHolder} style={{height: 'calc(100vh - 100px'}}>
+            <div className={classes.contentHolder}>
              
                 <div className={classes.innerHolder}>
                 

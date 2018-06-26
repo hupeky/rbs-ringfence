@@ -2,7 +2,20 @@
     transition:200ms;
     display: inline-block !important;
     opacity: 0.3;
-}       
+    cursor: pointer;
+    border-radius: 100px;
+    box-sizing: border-box;
+    margin:2%;
+    margin-top:0;
+    margin-bottom:0;
+
+}    
+
+.imageButton:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 .active {
     opacity: 1

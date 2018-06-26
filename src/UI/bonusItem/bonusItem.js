@@ -1,33 +1,59 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import * as siteActions from '../../../store/actions/siteActions'
+import React, {Component} from 'react'
 
-import pageClasses from '../Page.css'
 import classes from './bonusItem.css'
 
-import ContentHolder from './../../../hoc/contentHolder/contentHolder'
-import CentreContent from '../../../Component/CentreContent/CentreContent'
+class bonusItem extends Component {
+    MyComponent = <div></div>
+    shouldComponentUpdate ( nextProps ) {
+        if ( this.props.bonusCorrect === null ) {
+            return false
+        } else {
+            return true
+        }
 
-import Timer from '../../../Component/timer/timer'
+    }
+    componentDidMount () {
+        let icon = document.getElementById( this.props.label )
+        let redBar = document.querySelector( `#${this.props.label} #redBar` )
+        let selectedItem = document.querySelector( `#${this.props.label} #${this.props.selected}` )
+        selectedItem.style.display = 'block'
+        console.log( 'this.props.current', this.props.current )
+        console.log( 'this.props.correct', this.props.correct )
+        console.log( 'redBar', redBar )
+        console.log( 'icon', icon )
+        if ( this.props.current ) {
+            if ( icon ) {
+                icon.style.opacity = 1
+            }
+        }
+        if ( !this.props.current ) {
+            if ( icon ) {
+                icon.style.opacity = 0.5
+            }
+        }
+        if ( this.props.correct ) {
+            if ( redBar ) {
+                redBar.style.opacity = 0
+            }
+        }
+        if ( !this.props.correct ) {
+            if ( redBar ) {
+                redBar.style.opacity = 1
+            }
+        }
 
-const bonusItem = ( props ) => {
-    const {isLocked , isCurrent} = {...props}
-
-    let current = false;
-
-    if ( props.index === props.currentIndex ) {
-        current = true
     }
 
-    return (
+    render () {
 
-    )
-}
 
-const mapStateToProps = state => { // map redux state to class props
-    return {
-        currentIndex: state.currentIndex,
+
+        let MyComponent = this.props.icon
+        return (
+            <MyComponent />
+        )
     }
+
 }
 
-export default connect( mapStateToProps )( missionComplete ) 
+export default bonusItem 
