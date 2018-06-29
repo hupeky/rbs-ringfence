@@ -91,10 +91,10 @@ class pickAList extends Component {
         this.props.sliderRef.slickNext()
     }
 
-    buildPageButtonHandler ( question, label, buttonLabel, sliderRef, bonusQuestion, singleSelect ) {
+    buildPageButtonHandler ( question, label, buttonLabel, sliderRef, bonusQuestion, singleSelect,buttonType ) {
         let button
         if ( question ) {
-            button = <PageButton singleSelect={singleSelect} count={this.state.count} totalCount={this.state.totalCount} disabled={this.state.disabled} click={() => this.submitListHandler( this.state.selected, label, true )} buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
+            button = <PageButton singleSelect={singleSelect} count={this.state.count} totalCount={this.state.totalCount} disabled={buttonType === 'carousel' ? false : this.state.disabled} click={() => this.submitListHandler( this.state.selected, label, true )} buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
         } else {
             button = <PageButton buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
         }
@@ -173,7 +173,7 @@ class pickAList extends Component {
                         return question ?
                             button = <ImageButton click={() => this.selectListHandler( index, questionItems, bonusQuestion, label, bonusLabel, singleSelect )} columns={buttonColumns} image={item.image} key={index} active={this.state.selected[index]} label={item.label} />
                             :
-                            button = <ImageButton columns={buttonColumns} image={item.image} key={index} active={this.props.questionData[label].correctAnswer[index]} label={item.label} />
+                            button = <ImageButton columns={buttonColumns} image={item.image} key={index} active={this.props.questionData[label].correctAnswer[index]} label={item.label} >sadasd</ImageButton>
                     case 'carousel':
                         return question ?
                             <CarouselItem key={index} alt='' image={item.image} label={item.label} />
@@ -205,7 +205,7 @@ class pickAList extends Component {
                     </CentreContent>
                 </ContentHolder>
                 <ButtonHolder>
-                    {this.buildPageButtonHandler( question, label, buttonLabel, sliderRef, bonusQuestion, singleSelect )}
+                    {this.buildPageButtonHandler( question, label, buttonLabel, sliderRef, bonusQuestion, singleSelect,buttonType )}
                 </ButtonHolder>
             </React.Fragment>
         )

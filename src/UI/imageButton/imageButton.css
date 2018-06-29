@@ -1,15 +1,24 @@
 .imageButton {
-    transition:200ms;
+   
     display: inline-block !important;
-    opacity: 0.3;
     cursor: pointer;
-    border-radius: 100px;
     box-sizing: border-box;
-    margin:2%;
     margin-top:0;
     margin-bottom:0;
+    background-color:transparent;
+    min-height:50px;
+}  
 
-}    
+.imageButton img {
+    transition:200ms;
+    opacity: 0.3;
+    width:100%;   
+    padding-left:15%;
+    padding-right:15%;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+.imageButton p {padding:0;padding-top:3px;margin:0;font-size:13px;height:35px;line-height:1;overflow: hidden}
 
 .imageButton:after {
     content: "";
@@ -17,6 +26,6 @@
     clear: both;
   }
 
-.active {
+.imageButton .active {
     opacity: 1
 }

@@ -1,3 +1,7 @@
+.selectHolder {
+
+}
+
 input, select {
     padding: 10px;
     display:block;
@@ -14,9 +18,25 @@ input, select {
     width:80%;
     max-width:250px;
     max-height:100px;
-    
+    border-radius: 20px;    
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+.select {
+    height:200px;
+    overflow-y: scroll;
+}
+
+.select option {
+    font-size:17px;
+    color:rgb(145, 145, 145);
+}
+
+.select .select {
+    font-size:17px;
+    color:rgb(197, 197, 197);
+}
+
 
 input::placeholder  {
     color: rgb(192, 192, 192); 

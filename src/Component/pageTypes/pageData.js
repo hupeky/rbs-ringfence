@@ -9,6 +9,7 @@ import * as bonusIcons from './../../assets/bonus/icons'
 import {connect} from 'react-redux'
 import planetStandBlue from '../../assets/planets/planetStandBlue.svg'
 import planetStandPurple from '../../assets/planets/planetStandPurple.svg'
+import finalImage from '../../assets/background/finalScreen.jpg'
 
 import PrintName from './../../UI/printName/printName'
 
@@ -20,26 +21,33 @@ class pageData extends Component {
         // {
         //     type: 'svg',
         // },
-        {
-            type: 'Info',
-            title: 'Welcome to Ring-fencing Galaxy',
-            paragraph: <span><PrintName /> In this XXminute game you will learn all about Ring-fencing and help your character on his mission`</span>,
-            buttonLabel: 'Get Started'
-        },
+        /*         {
+                    type: 'Drag',
+                    questionItems: [
+                        {label: 'Group 1', image: planets.planet1, value: 'upper', caption: 'This is inside'}, // , funny: true if you want to have a funny answer also
+                        {label: 'Group 2', image: planets.planet2, value: 'upper', caption: 'This is inside'},
+                        {label: 'Group 3', image: planets.planet3, value: 'upper', caption: 'This is inside'},
+                        {label: 'Group 4', image: planets.planet4, value: 'lower', caption: 'This is inside'},
+                        {label: 'Group 5', image: planets.planet5, value: 'lower', caption: 'This is inside'},
+                        {label: 'Group 6', image: planets.planet5, value: 'lower', caption: 'This is inside'},
+                    ],
+                    buttonType: 'image', // image
+                    buttonLabel: 'Confirm?',
+                    correctAnswer: [true, true, true, false, false, false],
+                }, */
 
-        /////////////
         {
             type: 'Info',
             centreContent: false,
             question: 'Hey there… can you help?',
-            paragraph: 'Hi, I’m Roo, a Guardian of the Ring-fence. I’m glad my signal got through! I am travelling to planet Robos but I’ve lost all of my belongings on the way, can you help me find them all and complete my mission?',
+            paragraph: 'I’m Ringo, guardian of the ring-fence. I’m travelling to planet Robos but I’ve lost all my belongings on the way. Can you help me find them and complete my mission?',
             buttonLabel: 'Get Started',
             imageHeight: 0.3,
             bottomImage: planetStandBlue,
         },
         {
             type: 'Name',
-            question: 'Almost forgot, what should I call you?',
+            question: 'Almost forgot, what should I call you?', 
             buttonLabel: 'Continue'
         },
         {
@@ -93,15 +101,15 @@ class pageData extends Component {
             label: 'whatRingFence',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'Ring fencing legislation means that we must make changes to the way our group is structured and how we operate when working with and providing services to customers. The basic rules is that retail banking services are inside the ring-fence and investment banking services are outside the ring-fence. Some activities, notably banking for larger companies, may be on either side.',
-            buttonLabel: 'Next Question',
+            paragraph: 'Ring-fencing legislation means that we must make changes to the way our group is structured and how we operate when working with and providing services to customers. The basic rules are that retail banking services are inside the ring-fence and investment banking services are outside the ring-fence. Some activities, notably banking for larger companies, may be on either side.',
+            buttonLabel: 'Continue',
         },
         {
             type: 'Info',
             label: 'whatRingFence',
             centreContent: false,
-            subTitle: 'Congratulations, you\'ve found a suit',
-            paragraph: 'Yay !!',
+            subTitle: 'Brilliant, you\'ve found my suit',
+            paragraph: 'Gorgeous colour!!',
             buttonLabel: 'Next Question',
             imageHeight: 0.3,
             bottomImage: planetStandBlue,
@@ -116,15 +124,15 @@ class pageData extends Component {
             availableItems: ['hair1', 'hair2', 'hair3', 'hair4', 'hair5'],
             label: 'ringDate',
             questionItems: [
-                {label: '1st September 2018'}, // , funny: true        // if you want to have a funny answer also
+                {label: '1st September 2017'}, // , funny: true        // if you want to have a funny answer also
                 {label: '31st December 2018'},
                 {label: '1st January 2019'},
-                {label: '31st January 2019'},
-                {label: '31st March 2019'},
+                {label: '31st August 2020'},
+                {label: '31st March 2021'},
 
             ],
             buttonType: 'list', // image
-            buttonLabel: 'Continue?',
+            buttonLabel: 'Continue',
             correctAnswer: [false, false, true, false, false]
         },
         {
@@ -139,9 +147,9 @@ class pageData extends Component {
             type: 'Info',
             label: 'ringDate',
             centreContent: false,
-            subTitle: 'Congratulations, you\'ve found a hair style',
-            paragraph: 'Cant wait to go out tonight with my new doo. !!',
-            buttonLabel: 'Next Question',
+            subTitle: 'I love my new hair',
+            paragraph: 'I totally rock this look!',
+            buttonLabel: 'Continue',
             imageHeight: 0.3,
             bottomImage: planetStandBlue,
         },
@@ -153,14 +161,14 @@ class pageData extends Component {
         {
             type: 'PickAListQuestion',
             question: 'How many licensed banks will be inside the ring-fence once it\'s in place?',
-            subText: 'Click the number you think it is:',
+            subText: 'Click the number of planets you think the number is:',
             label: 'howManyBanks',
             questionItems: [
-                {label: 'Planet1', image: planets.planet1}, // , funny: true if you want to have a funny answer also
-                {label: 'Planet2', image: planets.planet2},
-                {label: 'Planet3', image: planets.planet3},
-                {label: 'Planet4', image: planets.planet4},
-                {label: 'Planet5', image: planets.planet5},
+                {label: '', image: planets.planet1}, // , funny: true if you want to have a funny answer also
+                {label: '', image: planets.planet2},
+                {label: '', image: planets.planet3},
+                {label: '', image: planets.planet4},
+                {label: '', image: planets.planet5},
             ],
             buttonType: 'image', // image
             buttonLabel: 'Confirm?',
@@ -171,16 +179,16 @@ class pageData extends Component {
             label: 'howManyBanks',
             preWrong: 'Not quite right!',
             preRight: 'Correct!',
-            answer: 'They all apply',
+            answer: 'There will be 5 licensed banks within the ring-fence, with the most employees sitting within NatWest Bank Plc.',
             buttonLabel: 'Continue',
         },
-        {
-            type: 'Info',
-            label: 'howManyBanks',
-            subTitle: 'More info',
-            paragraph: 'There will be 5 licensed banks within the ring-fence, with the most employees sitting within NatWest Bank Plc.',
-            buttonLabel: 'Next Question',
-        },
+        // {
+        //     type: 'Info',
+        //     label: 'howManyBanks',
+        //     subTitle: 'More info',
+        //     paragraph: 'There will be 5 licensed banks within the ring-fence, with the most employees sitting within NatWest Bank Plc.',
+        //     buttonLabel: 'Next Question',
+        // },
         // bonus 1 selectAll5 ////////////////////
         {
             type: 'Info',
@@ -188,14 +196,14 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
-            paragraph: 'Youve got 10 seconds to answer the question correctly and win an item. Good luck !!',
+            paragraph: 'This is exciting, you can help me unlock one of my treasured items, lets go. We have 15 seconds',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
         },
         {
             bonusQuestion: true,
             icon: bonusIcons.bonus1SVG,
-            bonusTime: 10000,
+            bonusTime: 15000,
             bonusLabel: 'bonus1',
             question: 'Can you list all 5 banks INSIDE the ring-fence?',
             type: 'PickAListQuestion',
@@ -206,15 +214,15 @@ class pageData extends Component {
                 {label: 'Adam & Company', image: banks.adamCompany}, // , funny: true if you want to have a funny answer also
                 {label: 'Child & Company', image: banks.childCo},
                 {label: 'Coutts', image: banks.couttsDependancies},
-                {label: 'Coutts Dependencies', image: banks.green},
-                {label: 'Drummonds', image: banks.holts},
-                {label: 'Green', image: banks.lombard},
-                {label: 'Holts', image: banks.natwerstMarkets},
-                {label: 'Lombard', image: banks.natwest},
+                {label: 'Green', image: banks.green},
+                {label: 'Holts', image: banks.holts},
+                {label: 'Lombard', image: banks.lombard},
+                {label: 'Natwest Markets', image: banks.natwerstMarkets},
+                {label: 'Natwest', image: banks.natwest},
                 {label: 'Natwest Markets', image: banks.natwestInt},
-                {label: 'Natwest', image: banks.rbs},
-                {label: 'Natwest International', image: banks.rbsInt},
-                {label: 'RBS', image: banks.rbsInv}
+                {label: 'RBS', image: banks.rbs},
+                {label: 'RBS International', image: banks.rbsInt},
+                {label: 'RBS Invoice Finance', image: banks.rbsInv}
             ],
             buttonType: 'image', // image
             buttonLabel: 'Am I right?',
@@ -225,7 +233,7 @@ class pageData extends Component {
             bonusLabel: 'bonus1',
             label: 'selectAll5',
             preWrong: 'Not quite right on that one',
-            preRight: 'Yes thats right!',
+            preRight: 'Yes that\'s right!',
             answer: 'These are the 5 banks inside the ring-fence',
             buttonLabel: 'More Info',
         },
@@ -234,14 +242,14 @@ class pageData extends Component {
             label: 'selectAll5',
             bonusLabel: 'bonus1',
             subTitle: 'More info',
-            paragraph: 'The banks inside the ring-fence are: The Royal Bank of Scotland plc, National Westminster Bank Plc, Ulster Bank Ireland DAC, Ulster Bank Limited, Coutts and Company',
+            paragraph: <span>The banks inside the ring-fence are: The Royal Bank of Scotland plc, National Westminster Bank Plc, Ulster Bank Ireland DAC, Ulster Bank Limited, Coutts and Company.<br /><br /><b>Did you know: </b>Adam and Company are not a licensed bank but are in fact a brand? You can find more information on this on the intranet. </span>,
             buttonLabel: 'Continue',
         },
         {
             type: 'BonusItems',
             bonusLabel: 'bonus1',
-            locked: 'Sorry, you didnt unlock your new headwear',
-            unlocked: 'Hey, you\'ve unlocked your new headwear',
+            locked: 'Sorry, you didnt unlock my headwear',
+            unlocked: 'Hey, you\'ve unlocked my headwear',
             buttonLabel: 'Continue',
         },
         {
@@ -250,12 +258,10 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Next Question',
             unlocked: 'Oh wow, this looks great on me!',
-            locked: 'Ah, nevermind, lets go for the next item.',
+            locked: 'Ah, nevermind, let\'s go for the next thing.',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
         },
-
-
 
         // Question 4 ///////////// drag drop 
         {
@@ -293,16 +299,16 @@ class pageData extends Component {
             type: 'Info',
             label: 'customersNotice',
             subTitle: 'More info',
-            paragraph: 'No material changes. There\'ll be no change to how personal bank account holders bank with us or the level of service we provide them. We\'ll still be the same bank they know and are used to dealing with.',
+            paragraph: 'There\'ll be no change to how personal bank account holders bank with us or the level of service we provide them. We\'ll still be the same bank they know and are used to dealing with.',
             buttonLabel: 'Continue',
         },
         {
             type: 'Info',
             label: 'customersNotice',
             centreContent: false,
-            subTitle: 'Congratulations, you\'ve found your glasses',
-            paragraph: 'Hey, youre looking good !!',
-            buttonLabel: 'Next Question',
+            subTitle: 'Oh nice, you\'ve found my goggles',
+            paragraph: 'Hey, I\'m looking good !!',
+            buttonLabel: 'Continue',
             imageHeight: 0.3,
             bottomImage: planetStandBlue,
         },
@@ -313,7 +319,7 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
-            paragraph: 'Youve got four seconds to answer the question correctly and win an item. Good luck !!',
+            paragraph: 'Aha, you can help me unlock another one of my treasured items, lets go.',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
         },
@@ -323,7 +329,7 @@ class pageData extends Component {
             item: 'tailGroup',
             availableItems: ['tail1', 'tail2', 'tail3', 'tail4', 'tail5'],
             icon: bonusIcons.bonus2SVG,
-            bonusTime: 4000,
+            bonusTime: 10000,
             type: 'YesNoQuestion',
             label: 'canCollaborate',
             question: 'Can people in Personal & Business Banking (PBB) collaborate with colleagues in NatWest Markets (NWM)?',
@@ -339,8 +345,7 @@ class pageData extends Component {
             type: 'YesNoQuestion',
             label: 'canCollaborate',
             preWrong: 'Not quite right on that one',
-            preRight: 'Yes thats right!',
-            answer: 'Yes they can',
+            preRight: 'Yes that\'s right!',
             buttonLabel: 'More info',
         },
         {
@@ -355,21 +360,21 @@ class pageData extends Component {
             type: 'BonusItems',
             bonusLabel: 'bonus2',
             buttonLabel: 'Continue',
-            locked: 'Sorry, you didnt unlock your new tail',
-            unlocked: 'Hey, you\'ve unlocked your new tail',
+            locked: 'Sorry, you didnt unlock my tail',
+            unlocked: 'Great, you\'ve unlocked my tail',
         },
         {
             type: 'Info',
             bonusLabel: 'bonus2',
             centreContent: false,
             buttonLabel: 'Next Question',
-            unlocked: 'Oh yeah, I totally pull that look off',
-            locked: 'Ah, nevermind, lets go for the next item.',
+            unlocked: 'Oh yeah, I look awesome',
+            locked: 'Ah, nevermind, lets go for the next thing.',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
         },
 
-        // Questoion 6 ////////////////////////////////////////////////////////
+        // Questoion 6 ////////////////////////////////////////////////////////                                         
 
         {
             type: 'PickAListQuestion',
@@ -391,7 +396,7 @@ class pageData extends Component {
             type: 'PickAListQuestion',
             label: 'spotDifference',
             preWrong: 'Not quite right on that one',
-            preRight: 'Yes thats right!',
+            preRight: 'Yes that\'s right!',
             answer: 'There will be some difference because of our business model. The way in which individual banks are going about ring-fencing depends upon the type of business carried out by those banks, including the business mix between retail and other banking activities, and their current structure. Most won\'t see any changes, and for those who do, we have kept them updated along the way.',
             buttonLabel: 'Continue',
         },
@@ -400,8 +405,8 @@ class pageData extends Component {
             label: 'spotDifference',
             itemLabel: 'shoes',
             centreContent: false,
-            subTitle: 'Congratulations, you\'ve found your shoes',
-            paragraph: 'I\'ll be taking these out for spin tonight !!',
+            subTitle: 'Oooh, you\'ve found my shoes',
+            paragraph: 'I\'ll be taking these out for spin tonight!!',
             buttonLabel: 'Next Question',
             imageHeight: 0.3,
             bottomImage: planetStandBlue,
@@ -427,7 +432,7 @@ class pageData extends Component {
             label: 'workDifferent',
             centreContent: true,
             subTitle: 'Oooops, trick question. The answer is yes and no',
-            paragraph: 'We\'re all still part of RBS Group and there will be no changes to our ambition. However there will be some administrative changes needed to meet ring-fencing requirements. For example, we will change our internal operations, systems and processes to comply with ring-fencing rules.',
+            paragraph: 'We\'re all still part of RBS Group and there will be no changes to our ambition. However there will be some administrative changes needed to meet ring-fencing requirements. For example, we\'ll change our internal operations, systems and processes to comply with ring-fencing rules.',
             buttonLabel: 'Continue',
         },
         {
@@ -448,18 +453,18 @@ class pageData extends Component {
                 {label: 'Terms and conditions'}, // , funny: true if you want to have a funny answer also
                 {label: 'RBS brand on payslips'},
                 {label: 'Employer legal entity'},
-                {label: 'Pay and benefits, no changes.'}
+                {label: 'Pay and benefits'},
+                {label: 'No changes'},
             ],
             buttonType: 'list', // image
             buttonLabel: 'Confirm',
-            correctAnswer: [false, false, true, false]
+            correctAnswer: [false, false, true, false, false]
         },
         {
             type: 'PickAListQuestion',
             label: 'contractsChange',
             preWrong: 'Not quite right!',
             preRight: 'Correct!',
-            answer: 'Employer legal entity.',
             buttonLabel: 'More info',
         },
         {
@@ -473,8 +478,8 @@ class pageData extends Component {
             type: 'Info',
             label: 'contractsChange',
             centreContent: false,
-            subTitle: 'Congratulations, you\'ve got a suit upgrade',
-            paragraph: 'Wow, I feel so fab right now !!',
+            subTitle: 'Amazing! how cool do I look now?',
+            paragraph: 'I feel so fab !!',
             buttonLabel: 'Next Question',
             imageHeight: 0.3,
             bottomImage: planetStandBlue,
@@ -497,14 +502,14 @@ class pageData extends Component {
             type: 'YesNoQuestion',
             label: 'canColleagues',
             preWrong: 'Not quite right on that one',
-            preRight: 'Yes thats right!',
+            preRight: 'Yes that\'s right!',
             buttonLabel: 'More info',
         },
         {
             type: 'Info',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'Yes. The rules of ring-fencing say that, if you\'re in the ring-fence, it’s ok to provide services to colleagues on both sides of the ring-fence. But it’s a one way thing – NatWest Markets (for example) can’t provide services to colleagues who are inside the ring-fenced bank. ',
+            paragraph: 'The rules of ring-fencing say that, if you\'re in the ring-fence, it’s ok to provide services to colleagues on both sides of the ring-fence. But it’s a one way thing – NatWest Markets (for example) can’t provide services to colleagues who are inside the ring-fenced bank. ',
             buttonLabel: 'Continue',
         },
         //////// Bonus 3 //////////////
@@ -514,7 +519,7 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
-            paragraph: 'Youve got eight seconds to answer the question correctly and win an item. Good luck !!',
+            paragraph: 'You\'ve got a chance to unlock a lovely new gift for me, lets go',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
         },
@@ -522,7 +527,7 @@ class pageData extends Component {
             type: 'PickAListQuestion',
             bonusQuestion: true,
             icon: bonusIcons.bonus3SVG,
-            bonusTime: 8000,
+            bonusTime: 10000,
             bonusLabel: 'bonus3',
             item: 'neckGroup',
             availableItems: ['neck1', 'neck2', 'neck3', 'neck4', 'neck5'],
@@ -551,7 +556,7 @@ class pageData extends Component {
             bonusLabel: 'bonus3',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'Across both areas - Risk has teams that work inside the ring-fence and outside the ring-fence, working collaboratively to provide advice and guidance across the ring-fence for a bank-wide, holistic view for businesses to make informed decisions.',
+            paragraph: 'Risk has teams that work inside the ring-fence and outside the ring-fence, working collaboratively to provide advice and guidance across the ring-fence for a bank-wide, holistic view for businesses to make informed decisions.',
             buttonLabel: 'Continue',
         },
         {
@@ -566,7 +571,7 @@ class pageData extends Component {
             bonusLabel: 'bonus3',
             centreContent: false,
             buttonLabel: 'Next Question',
-            unlocked: 'Nice, I love recieving new gifts',
+            unlocked: 'I love my new gift',
             locked: 'Ah, nevermind, lets go for the next item.',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
@@ -592,7 +597,7 @@ class pageData extends Component {
             type: 'YesNoQuestion',
             label: 'marketTraders',
             preWrong: 'Not quite right on that one',
-            preRight: 'Yes thats right!',
+            preRight: 'Yes that\'s right!',
             buttonLabel: 'More info',
         },
         {
@@ -600,7 +605,7 @@ class pageData extends Component {
             label: 'marketTraders',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'Yes. NWM employees who work with customers needing products and services that sit inside the ring-fence will work with colleagues in CPB to help them access these . The same would apply if customers need products and services that are available both from inside and outside the ring-fence. For example, 1) a NWM trader can offer Derivatives or FX Options to a CPB customer after referral from a CPB Relationship Manager or, 2) a NWM banker can introduce a Banking or Insurance sector customer to CPB to support the customer\'s day to day payment needs.',
+            paragraph: 'NWM employees who work with customers needing products and services that sit inside the ring-fence will work with colleagues in CPB to help them access these . The same would apply if customers need products and services that are available both from inside and outside the ring-fence. For example, 1) a NWM trader can offer Derivatives or FX Options to a CPB customer after referral from a CPB Relationship Manager or, 2) a NWM banker can introduce a Banking or Insurance sector customer to CPB to support the customer\'s day to day payment needs.',
             buttonLabel: 'Continue',
         },
 
@@ -626,14 +631,13 @@ class pageData extends Component {
             label: 'affectCPB',
             preWrong: 'Not quite right!',
             preRight: 'Correct!',
-            answer: 'Just changes to employer legal entity.',
             buttonLabel: 'More info',
         },
         {
             type: 'Info',
             label: 'affectCPB',
             subTitle: 'More info',
-            paragraph: 'Some changes dependent on products and services needed: Some customers will receive certain products or services from NatWest Markets Plc (NWM), but their main relationship will stay with CPB. For example, Structured Deposits can be offered by NWM to a CPB customer after referral from a CPB Relationship Manager. Access to products may also change, for example,  a Relevant Financial Institution (RFI) customer in CPB who wants a credit card can only have a charge card with the balance repayable within 7 days.',
+            paragraph: 'Some customers will receive certain products or services from NatWest Markets Plc (NWM), but their main relationship will stay with CPB. For example, Structured Deposits can be offered by NWM to a CPB customer after referral from a CPB Relationship Manager. Access to products may also change, for example,  a Relevant Financial Institution (RFI) customer in CPB who wants a credit card can only have a charge card with the balance repayable within 7 days.',
             buttonLabel: 'Continue',
         },
         // {
@@ -658,7 +662,7 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
-            paragraph: 'Youve got four seconds to answer the question correctly and win an item. Good luck !!',
+            paragraph: 'I\'ve lost my best buddy, help me find him!! You\'ve got five seconds to answer',
             imageHeight: 0.3,
             bottomImage: planetStandPurple,
         },
@@ -666,7 +670,7 @@ class pageData extends Component {
             bonusQuestion: true,
             bonusLabel: 'bonus4',
             icon: bonusIcons.bonus4SVG,
-            bonusTime: 4000,
+            bonusTime: 5000,
             item: 'petGroup',
             availableItems: ['pet1', 'pet2', 'pet3', 'pet4', 'pet5'],
             type: 'YesNoQuestion',
@@ -684,7 +688,7 @@ class pageData extends Component {
             bonusLabel: 'bonus4',
             label: 'supportFunction',
             preWrong: 'Not quite right on that one',
-            preRight: 'Yes thats right!',
+            preRight: 'Yes that\'s right!',
             buttonLabel: 'More info',
         },
         {
@@ -692,14 +696,14 @@ class pageData extends Component {
             type: 'Info',
             label: 'supportFunction',
             subTitle: 'More info',
-            paragraph: 'Yes - colleagues in Services and Function teams will provide some shared services to the whole bank, meaning that, even though employed by NatWest Bank Plc, they can work with colleagues on both sides of the ring-fence. There will be intra-group agreements in place to formally document these arrangements.',
+            paragraph: 'Colleagues in Services and Function teams will provide some shared services to the whole bank, meaning that, even though employed by NatWest Bank Plc, they can work with colleagues on both sides of the ring-fence. There will be intra-group agreements in place to formally document these arrangements.',
             buttonLabel: 'Continue',
         },
         {
             type: 'BonusItems',
             bonusLabel: 'bonus4',
-            locked: 'Sorry, you didnt unlock your companion',
-            unlocked: 'Hey, Youve unlocked your companion',
+            locked: 'Sorry, you didnt find my best buddy',
+            unlocked: 'Hey, you\'ve found my best buddy',
             buttonLabel: 'Continue'
         },
         {
@@ -707,9 +711,26 @@ class pageData extends Component {
             bonusLabel: 'bonus4',
             centreContent: false,
             buttonLabel: 'Continue',
-            unlocked: 'Nice, I got a new friend',
-            locked: 'Ah, nevermind, I\'m happy with my own company.',
+            unlocked: 'Nice, I got my best buddy back',
+            locked: 'Ooh no, I\'m sure we\'ll find my best buddy soon',
             imageHeight: 0.3,
+            bottomImage: planetStandPurple,
+        },
+        {
+            type: 'Info',
+            centreContent: false,
+            buttonLabel: 'Continue',
+            subTitle: <span> Thank you <PrintName />, we are all one bank - one team.</span>,
+            unlocked: 'Nice, I got my best buddy back',
+            locked: 'Ooh no, I\'m sure we\'ll find my best buddy soon',
+            imageHeight: 0.3,
+            fullScreenImage: finalImage
+        },
+        {
+            type: 'Share',
+            centreContent: false,
+            imageHeight: 0.3,
+            subTitle: 'Download your character here',
             bottomImage: planetStandPurple,
         },
 

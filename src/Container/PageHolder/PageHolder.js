@@ -22,7 +22,10 @@ import MissionComplete from '../../Component/pageTypes/MissionComplete/MissionCo
 import Name from '../../Component/pageTypes/Name/Name'
 import YesNoQuestion from '../../Component/pageTypes/YesNoQuestion/YesNoQuestion'
 import BonusItems from '../../Component/pageTypes/BonusItems/BonusItems'
-import Svg from '../../Component/pageTypes/svg/svg'
+import Share from '../../Component/pageTypes/Share/Share'
+import Drag from '../../Component/pageTypes/Drag/Drag'
+
+import backgroundHack from '../../assets/background/backgroundHack.jpg'
 
 class PageHolder extends Component {
     state = {
@@ -69,17 +72,17 @@ class PageHolder extends Component {
                 this.props.setBonusDataHandler( bonusData )
             }
             if ( page.item ) {
-                let randomNumber = Math.floor((Math.random() * 5))
-                console.log ('randomNumber', randomNumber)
+                let randomNumber = Math.floor( ( Math.random() * 5 ) )
+
                 let itemData = {
                     selected: page.availableItems[randomNumber],
                     visible: false,
                     questionLabel: page.label,
                     itemLabel: page.item
                 }
-                if (page.bonusLabel ) {
-                    console.log ('page.bonusLabel', page.bonusLabel)
-                    this.props.setBonusSelectedHandler(page.bonusLabel, page.availableItems[randomNumber])
+                if ( page.bonusLabel ) {
+
+                    this.props.setBonusSelectedHandler( page.bonusLabel, page.availableItems[randomNumber] )
                 }
                 this.props.setItemsDataHandler( itemData )
             }
@@ -111,8 +114,8 @@ class PageHolder extends Component {
     render () {
         this.settings = {
             dots: false,
-            infinite: false,
-            draggable: true,
+            infinite: true,
+            draggable: false,
             swipe: false,
             accessibility: true,
             speed: 400,
@@ -159,8 +162,10 @@ class PageHolder extends Component {
                     return <Name {...page} sliderRef={this.slider} index={index} />
                 case 'BonusItems':
                     return <BonusItems {...page} sliderRef={this.slider} index={index} />
-                case 'svg':
-                    return <Svg  />
+                case 'Share':
+                    return <Share {...page} sliderRef={this.slider} index={index}  />
+                case 'Drag':
+                    return <Drag {...page} sliderRef={this.slider} index={index} />
                 default: return <div>default</div>
 
             }
@@ -169,6 +174,7 @@ class PageHolder extends Component {
 
         return (
             <React.Fragment>
+                <img alt="" src={backgroundHack}  className={classes.backgroundHack}></img>
                 <Background />
                 <Slider ref={slider => ( this.slider = slider )} className={classes.Slider} {...this.settings}>
                     {Pages.map( ( page, index ) => {
@@ -176,7 +182,7 @@ class PageHolder extends Component {
                             <Page
                                 inTransition={index === this.state.inTransition ? true : false}
                                 current={index === this.props.currentIndex ? true : false} key={index}>
-                                {page}  
+                                {page}
                             </Page>
                         )
                     } )}
@@ -202,7 +208,7 @@ const mapDispatchToProps = dispatch => {
         setCurrentIndex: ( currentIndex ) => dispatch( {type: siteActions.SET_CURRENT_INDEX, currentIndex: currentIndex} ),
         setQuestionDataHandler: ( questionData ) => dispatch( {type: siteActions.SET_QUESTION_DATA, questionData: questionData} ),
         setBonusDataHandler: ( bonusData ) => dispatch( {type: siteActions.SET_BONUS_DATA, bonusData: bonusData} ),
-        setBonusSelectedHandler: ( label, item ) => dispatch( {type: siteActions.SET_BONUS_SELECTED, label: label,item: item} ),
+        setBonusSelectedHandler: ( label, item ) => dispatch( {type: siteActions.SET_BONUS_SELECTED, label: label, item: item} ),
         setItemsDataHandler: ( itemData ) => dispatch( {type: siteActions.SET_ITEMS_DATA, itemData: itemData} ),
         setIsBonusRoundHandler: ( isBonus ) => dispatch( {type: siteActions.SET_IS_BONUS, isBonus: isBonus} ),
     }

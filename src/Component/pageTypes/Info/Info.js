@@ -17,8 +17,8 @@ class Info extends Component {
         active: false
     }
 
-    buildBonusResponseHandler (bonusCorrect, locked, unlocked) {
-    return bonusCorrect ? <h3>{unlocked}</h3> : <h3>{locked}</h3>
+    buildBonusResponseHandler ( bonusCorrect, locked, unlocked ) {
+        return bonusCorrect ? <h3>{unlocked}</h3> : <h3>{locked}</h3>
     }
 
     render () {
@@ -27,17 +27,23 @@ class Info extends Component {
         let {buttonLabel, label, bonusLabel, sliderRef, locked, unlocked} = this.props
         if ( bonusLabel ) {
             bonusCorrect = this.props.bonusData[bonusLabel].bonusCorrect
-            console.log( bonusCorrect )
         }
-        if ( (this.props.index === this.props.currentIndex || this.props.index === this.props.currentIndex-1)  ) { // if current is true
+        if ( ( this.props.index === this.props.currentIndex || this.props.index === this.props.currentIndex - 1 ) ) { // if current is true
             current = true;
         }
         return (
             <React.Fragment>
+                {this.props.fullScreenImage ?
+                    <React.Fragment>
+                        <div style={{background: `url(${this.props.fullScreenImage})`, backgroundSize: 'cover', backgroundPosition: 'center center'}} className={classes.fullScreenImage} />
+                        {current ? <Character myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight * 1 ) - 80}px`}} /> : null}
+                    </React.Fragment>
+                    :
+                    null}
                 {this.props.bottomImage ?
                     <React.Fragment>
                         <img style={{height: `${( this.props.windowHeight * 1.2 ) * this.props.imageHeight}px`}} className={classes.bottomImage} alt="" src={this.props.bottomImage} />
-                        {current ? <Character  myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight * 1 ) - 50}px`}}/> : null}
+                        {current ? <Character myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight * 1 ) - 80}px`}} /> : null}
                     </React.Fragment>
                     :
                     null}
@@ -48,7 +54,7 @@ class Info extends Component {
                         {this.props.question ? <h3 className={classes.question}>{this.props.question}</h3> : null}
                         {this.props.subText ? <p className={classes.subText}>{this.props.subText}</p> : null}
                         {this.props.paragraph ? <p>{this.props.paragraph}</p> : null}
-                        {bonusLabel ? this.buildBonusResponseHandler(bonusCorrect, locked, unlocked) : null}
+                        {bonusLabel ? this.buildBonusResponseHandler( bonusCorrect, locked, unlocked ) : null}
                     </CentreContent>
                 </ContentHolder>
 

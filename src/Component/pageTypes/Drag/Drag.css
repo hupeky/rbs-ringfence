@@ -1,0 +1,30 @@
+.dragHolder {
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+}
+
+.upper  {
+    background-color: purple
+}
+.lower {
+    width: 100%;
+    height: 50%;
+    background-color: green
+}
+
+.dragger {
+    position:absolute;
+    width:  90%;
+    max-width: 270px;
+    height: 100px;
+    left: calc(50% - 135px);
+    top: calc(50% - 50px);
+    background-color: salmon;
+}
+
+@media only screen and (max-width: 310px) {
+    .dragger {
+        left:13px;
+    }
+}

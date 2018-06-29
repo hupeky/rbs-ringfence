@@ -33,11 +33,13 @@ class bonusItem extends Component {
         }
         if ( this.props.correct ) {
             if ( redBar ) {
+                redBar.style.display = 'block'
                 redBar.style.opacity = 0
             }
         }
         if ( !this.props.correct ) {
             if ( redBar ) {
+                redBar.style.display = 'block'
                 redBar.style.opacity = 1
             }
         }

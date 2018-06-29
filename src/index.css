@@ -1,16 +1,20 @@
 @font-face {
     font-family: 'rbs';
-    src: url('./assets/fonts/rbsReg.otf')  format("opentype");
+    src: url('./assets/fonts/rbsReg.otf')  format("opentype"),
+    url("./assets/fonts/woffReg.woff") format("woff");
+    
     font-weight: normal;
 }
 @font-face {
     font-family: 'rbs';
-    src: url('./assets/fonts/rbsLight.otf')  format("opentype");
+    src: url("./assets/fonts/woffLight.woff") format("woff"),
+    url('./assets/fonts/rbsLight.otf')  format("opentype");
     font-weight: lighter;
 }
 @font-face {
     font-family: 'rbs';
-    src: url('./assets/fonts/rbsBold.otf')  format("opentype");
+    src: url("./assets/fonts/woffBold.woff") format("woff"),
+    url('./assets/fonts/rbsBold.otf')  format("opentype");
     font-weight: bold;
 }
   
@@ -29,5 +33,5 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    font-family: 'rbs', serif;
+    font-family: 'rbs', Helvetica, Arial, sans-serif;
 }

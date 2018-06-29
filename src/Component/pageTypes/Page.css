@@ -16,9 +16,13 @@ input {
 
 h2 {
     font-size: 30px; /* main title */
+    margin-top:0px;
+    margin-bottom:7px;
 }
 h3 {
     font-size: 25px;  /* sub title */
+    margin-top:0px;
+    margin-bottom:7px;
 }
 
 h3.question {
@@ -29,13 +33,9 @@ h4 {
 }
 
 p {
-    font-size: 14px; /* paragraph */
+    font-size: 16px; /* paragraph */
+    margin-top:0;
     line-height: 1.5em;
-}
-
-p.subText {
-    margin-top:-10px;
-    font-size: 12px; /* tiny sub line */
 }
 
 .bottomImage  {
@@ -44,4 +44,20 @@ p.subText {
     left:0;
     height:200px;
     width:100%;
+}
+
+:global(.planet) {
+    width: 90%;
+  }
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+}
+
+.fullScreenImage {
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    background-size: cover;
+    background-position: center center;
 }

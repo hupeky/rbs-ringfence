@@ -26,7 +26,7 @@ class PageButton extends Component {
             label = this.props.buttonLabel
         }
         if (this.props.disabled === true) {
-            label = 'disabled'
+            label = ''
         }
         return label
     }

@@ -33,10 +33,10 @@ const siteReducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case siteActions.SET_ITEM:
             updatedItemsData = {...state.itemsData}
-            console.log( 'updatedItemsData', updatedItemsData )
+
             updatedItemsData[action.label] = {...state.itemsData[action.label]}
             updatedItemsData[action.label].visible = true
-            console.log( updatedItemsData[action.label] )
+
             return {
                 ...state,
                 itemsData: updatedItemsData
@@ -44,7 +44,7 @@ const siteReducer = ( state = initialState, action ) => {
         case siteActions.SET_BONUS_SELECTED:
         updatedBonusData = {...state.bonusData}
         updatedBonusData[action.label].selected = action.item
-        console.log ('SET_BONUS_SELECTED', updatedBonusData )
+
             return {
                 ...state,
                 bonusData: updatedBonusData
@@ -52,7 +52,7 @@ const siteReducer = ( state = initialState, action ) => {
         case siteActions.SET_ITEMS_DATA:
             updatedItemsData = {...state.itemsData}
             updatedItemsData[action.itemData.questionLabel] = action.itemData
-            console.log( updatedItemsData )
+
             return {
                 ...state,
                 itemsData: updatedItemsData

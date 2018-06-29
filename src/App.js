@@ -6,6 +6,8 @@ import PageHolder from './Container/PageHolder/PageHolder'
 import WindowResize from './Component/windowResize/windowResize'
 import './App.css';
 
+import 'core-js'
+
 
 class App extends Component {
     render () {
