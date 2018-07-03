@@ -48,13 +48,14 @@ class Info extends Component {
                     :
                     null}
                 <ContentHolder>
-                    <CentreContent centre={this.props.centreContent}>
+                    <CentreContent force={this.props.currentIndex} centre={this.props.centreContent}>
                         {this.props.title ? <h2>{this.props.title}</h2> : null}
                         {this.props.subTitle ? <h3>{this.props.subTitle}</h3> : null}
                         {this.props.question ? <h3 className={classes.question}>{this.props.question}</h3> : null}
                         {this.props.subText ? <p className={classes.subText}>{this.props.subText}</p> : null}
                         {this.props.paragraph ? <p>{this.props.paragraph}</p> : null}
                         {bonusLabel ? this.buildBonusResponseHandler( bonusCorrect, locked, unlocked ) : null}
+                        {this.props.image ? <img className={classes.pageImg} alt="" src={this.props.image} /> : null}
                     </CentreContent>
                 </ContentHolder>
 

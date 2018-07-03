@@ -24,6 +24,7 @@ import YesNoQuestion from '../../Component/pageTypes/YesNoQuestion/YesNoQuestion
 import BonusItems from '../../Component/pageTypes/BonusItems/BonusItems'
 import Share from '../../Component/pageTypes/Share/Share'
 import Drag from '../../Component/pageTypes/Drag/Drag'
+import DragAnswer from '../../Component/pageTypes/Drag/DragAnswer'
 
 import backgroundHack from '../../assets/background/backgroundHack.jpg'
 
@@ -88,6 +89,7 @@ class PageHolder extends Component {
             }
 
         } )
+
     }
 
     componentDidMount () {
@@ -163,9 +165,11 @@ class PageHolder extends Component {
                 case 'BonusItems':
                     return <BonusItems {...page} sliderRef={this.slider} index={index} />
                 case 'Share':
-                    return <Share {...page} sliderRef={this.slider} index={index}  />
+                    return <Share {...page} sliderRef={this.slider} index={index} />
                 case 'Drag':
                     return <Drag {...page} sliderRef={this.slider} index={index} />
+                case 'DragAnswer':
+                    return <DragAnswer {...page} sliderRef={this.slider} index={index} />
                 default: return <div>default</div>
 
             }
@@ -174,7 +178,7 @@ class PageHolder extends Component {
 
         return (
             <React.Fragment>
-                <img alt="" src={backgroundHack}  className={classes.backgroundHack}></img>
+                <img alt="" src={backgroundHack} className={classes.backgroundHack}></img>
                 <Background />
                 <Slider ref={slider => ( this.slider = slider )} className={classes.Slider} {...this.settings}>
                     {Pages.map( ( page, index ) => {

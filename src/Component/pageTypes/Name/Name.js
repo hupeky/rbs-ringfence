@@ -5,6 +5,8 @@ import * as siteActions from '../../../store/actions/siteActions'
 import pageClasses from '../Page.css'
 import classes from './Name.css'
 
+import axios from '../../../hoc/axios'
+
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
 import CentreContent from '../../../hoc/CentreContent/CentreContent'
 
@@ -26,19 +28,20 @@ class name extends Component {
 
     dropData = [
         {value: '', label: 'Select'},
-        {value: 'Communications & Marketing', label: 'Communications & Marketing'},
-        {value: 'Corporate Governance & Regulatory Affairs', label: 'Corporate Governance & Regulatory Affairs'},
-        {value: 'Human Resources', label: 'Human Resources'},
-        {value: 'Internal Audit', label: 'Internal Audit'},
+        {value: 'CommunicationsMarketing', label: 'Communications & Marketing'},
+        {value: 'CorporateGovernanceRegulatoryAffairs', label: 'Corporate Governance & Regulatory Affairs'},
+        {value: 'HumanResources', label: 'Human Resources'},
+        {value: 'InternalAudit', label: 'Internal Audit'},
         {value: 'Finance', label: 'Finance'},
         {value: 'Legal', label: 'Legal'},
-        {value: 'NatWest Markets', label: 'NatWest Markets'},
-        {value: 'Personal & Business Banking', label: 'Personal & Business Banking'},
-        {value: 'Risk, Conduct & Restructuring', label: 'Risk, Conduct & Restructuring'},
+        {value: 'NatWestMarkets', label: 'NatWest Markets'},
+        {value: 'PersonalBusinessBanking', label: 'Personal & Business Banking'},
+        {value: 'RiskConductRestructuring', label: 'Risk, Conduct & Restructuring'},
         {value: 'Services', label: 'Services'},
-        {value: 'Ulster Bank', label: 'Ulster Bank'},
-        {value: 'Williams & Glyn', label: 'Williams & Glyn'}
+        {value: 'UlsterBank', label: 'Ulster Bank'},
+        {value: 'WilliamsGlyn', label: 'Williams & Glyn'}
     ]
+
 
 
     nameChangeHandler = ( event ) => {
@@ -52,7 +55,7 @@ class name extends Component {
     }
 
     areaChangeHandler ( data ) {
-
+        console.log( 'data', data )
         this.setState( {dropDown: data} )
         if ( this.state.value.length > 0 && data.value.length > 0 ) {
             this.setState( {disabled: false} )
@@ -63,7 +66,23 @@ class name extends Component {
 
     submitNameHandler = ( answer, label ) => {
         this.props.setNameHandler( this.state.value )
-        console.log( this.state.value )
+        console.log( 'user select value', this.state.dropDown.value )
+
+        /*         const keys = this.dropData.map((item, index) => { // build keys for lookup table in firebase
+                    return item.value;
+                })
+        
+                axios.post('/keys.json', keys)
+                .then(response => console.log (response))
+                .catch(error => console.log (error)) */
+
+                let area = {value: this.state.dropDown.value}
+
+                axios.post('/users.json', area)
+                .then(response => console.log (response))
+                .catch(error => console.log (error)) 
+
+
     }
 
 
@@ -80,7 +99,7 @@ class name extends Component {
                         <h4 >Which area do you work in?</h4>
                         <Dropdown options={this.dropData} onChange={( data ) => this.areaChangeHandler( data )} value={this.state.dropDown.label} placeholder="Select an option" />
 
-                        {this.props.question ? <h4 className={classes.question}>{this.props.question}</h4> : null}
+                        {this.props.subTitle ? <h4 className={classes.question}>{this.props.subTitle}</h4> : null}
                         <input tabIndex="-1" autoComplete="off" className={pageClasses.input} type="text" placeholder={'Enter your nickname'} value={this.state.value} onChange={this.nameChangeHandler} name="nickname" />
 
                     </CentreContent>

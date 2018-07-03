@@ -95,6 +95,7 @@ const siteReducer = ( state = initialState, action ) => {
         case siteActions.SET_QUESTION_DATA:
             updatedQuestionData = {...state.questionData}
             updatedQuestionData[action.questionData.label] = action.questionData
+            console.log ('updatedQuestionData', updatedQuestionData)
             return {
                 ...state,
                 questionData: updatedQuestionData
@@ -116,7 +117,10 @@ const siteReducer = ( state = initialState, action ) => {
             const answer = action.answer
             correctAnswer = state.questionData[action.label].correctAnswer
 
+            console.log('answer',answer, 'correctAnswer', correctAnswer )
+
             isCorrect = answer.every( ( item, index ) => item === correctAnswer[index] )   // check if every nswer is the same as correct and answer  
+            console.log ('isCorrect', isCorrect)
             if ( action.funny ) {
                 isCorrect = 'funny'  // if funny in correct was given. change correct to funny. this will output a different response.
             }

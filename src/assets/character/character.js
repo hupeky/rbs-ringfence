@@ -6,7 +6,7 @@ import classes from './character.css'
 
 class Character extends Component {
 
-    componentDidMount() {        
+    componentDidMount() {
         Object.keys(this.props.itemsData).forEach((key, index) => {
             let layer = this.props.itemsData[key].itemLabel
             let selected = this.props.itemsData[key].selected
@@ -20,6 +20,7 @@ class Character extends Component {
                 }  
             }
         })
+        
     }
 
     render () {

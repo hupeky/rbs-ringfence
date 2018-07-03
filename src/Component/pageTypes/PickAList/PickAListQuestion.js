@@ -153,7 +153,7 @@ class pickAList extends Component {
             if ( buttonCount > 5 ) {
                 buttonColumns = 3
             }
-            if ( buttonCount > 10 ) {
+            if ( buttonCount > 9 ) {
                 buttonColumns = 4
             }
             if ( buttonCount > 14 ) {

@@ -61,3 +61,7 @@ p {
     background-size: cover;
     background-position: center center;
 }
+
+.pageImg {
+    width:100%;
+}

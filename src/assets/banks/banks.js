@@ -12,5 +12,6 @@ import rbs from './rbs.png'
 
 import rbsInt from './rbsInt.png'
 import rbsInv from './rbsInv.png'
+import ulster from './ulster.png'
 
-export {adamCompany,childCo,couttsDependancies,green,holts,lombard,natwerstMarkets,natwest,natwestInt,rbs,rbsInt,rbsInv}
+export {adamCompany,childCo,couttsDependancies,green,holts,lombard,natwerstMarkets,natwest,natwestInt,rbs,rbsInt,rbsInv, ulster}

@@ -49,7 +49,7 @@ const bonusItems = ( props ) => {
     return (
 
         <React.Fragment>
-            {current ? <Timer time={5000} notVisible={true} onTimeOut={onTimeOutHndler} /> : null}
+            {current ? <Timer time={3500} notVisible={true} onTimeOut={onTimeOutHndler} /> : null}
             <ContentHolder>
                 <CentreContent force={props.currentIndex} centre={props.centreContent}>
                     <div className={classes.bonusHolder}>

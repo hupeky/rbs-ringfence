@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {Component} from 'react'
 import classes from './dragButton.css'
-const dragButton = (props) => {
-    return (
-        <div ref={(ref) => {this.ref = ref}} onMouseDown={props.myClick(this.ref)} className={classes.dragger}>Drag me</div>
-    )
+class DragButton extends Component {
+    componentDidMount () {
+        this.props.setRef(this.ref)
+    }
+    render () {
+        return <div ref={(ref) => {this.ref = ref}} onTouchStart={this.props.mousedown} onMouseDown={this.props.mousedown} className={classes.dragger}>{this.props.children}</div>
+    }
 }
-export default dragButton
+
+export default DragButton
