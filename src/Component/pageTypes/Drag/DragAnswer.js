@@ -5,8 +5,6 @@ import classes from '../Page.css'
 
 import PageButton from '../../../UI/pageButton/pageButton'
 
-import Character from '../../../assets/character/character'
-
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'
 import CentreContent from '../../../hoc/CentreContent/CentreContent'
 import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
@@ -27,15 +25,12 @@ class Info extends Component {
         
         isCorrect = this.props.questionData[label].isCorrect
 
-        let current = false
         let bonusCorrect = false
         
         if ( bonusLabel ) {
             bonusCorrect = this.props.bonusData[bonusLabel].bonusCorrect
         }
-        if ( ( this.props.index === this.props.currentIndex || this.props.index === this.props.currentIndex - 1 ) ) { // if current is true
-            current = true;
-        }
+
         return (
             <React.Fragment>
                 <ContentHolder>

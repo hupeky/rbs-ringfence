@@ -82,10 +82,8 @@ class pickAList extends Component {
 
     submitListHandler = ( answer, label, correct ) => {
         this.props.setAnswerHandler( answer, label, this.state.funny )
-        console.log ('this.props.item',this.props.item)
 
         if (this.props.item && correct) {
-            console.log ('false',correct, 'this.props.item', this.props.item )
             this.props.setItemHandler( label )
         }
         this.props.sliderRef.slickNext()
@@ -136,7 +134,7 @@ class pickAList extends Component {
 
     render () {
         let current = false;
-        let {title, question, label, bonusLabel, questionItems, buttonLabel, sliderRef, preWrong, preRight, preFunny, answer, bonusQuestion, buttonType, singleSelect} = {...this.props};
+        let {question, label, bonusLabel, questionItems, buttonLabel, sliderRef, preWrong, preRight, preFunny, answer, bonusQuestion, buttonType, singleSelect} = {...this.props};
 
         let isCorrect = null;
         isCorrect = this.props.questionData[label].isCorrect

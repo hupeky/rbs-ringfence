@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
-import pageClasses from '../Page.css'
+//import pageClasses from '../Page.css'
 import classes from './BonusItems.css'
 
 import ContentHolder from './../../../hoc/contentHolder/contentHolder'

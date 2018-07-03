@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import classes from './bonusItem.css'
+// import classes from './bonusItem.css'
 
 class bonusItem extends Component {
     MyComponent = <div></div>
@@ -17,10 +17,6 @@ class bonusItem extends Component {
         let redBar = document.querySelector( `#${this.props.label} #redBar` )
         let selectedItem = document.querySelector( `#${this.props.label} #${this.props.selected}` )
         selectedItem.style.display = 'block'
-        console.log( 'this.props.current', this.props.current )
-        console.log( 'this.props.correct', this.props.correct )
-        console.log( 'redBar', redBar )
-        console.log( 'icon', icon )
         if ( this.props.current ) {
             if ( icon ) {
                 icon.style.opacity = 1

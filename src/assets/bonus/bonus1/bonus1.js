@@ -3,7 +3,7 @@ import React from 'react'
 import classes from './bonus1.css'
 
 const bonus1 = (props) => {
-    console.log (props.correct)
+
     return (
         <svg className={[classes.bonus1, props.current ? classes.current : classes.notCurrent, props.correct ? classes.correct : classes.notCorrect].join(" ")} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 122" space="preserve">
             <g id="bonus1" transform="translate(-16 6)">

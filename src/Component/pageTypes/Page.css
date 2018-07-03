@@ -48,7 +48,11 @@ p {
 
 :global(.planet) {
     width: 90%;
-  }
+}
+
+button {
+    user-select:none;
+}
 
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     /* IE10+ CSS styles go here */

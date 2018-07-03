@@ -71,7 +71,7 @@ class Info extends Component {
             case 'touchmove':
                 clientX = event.touches[0].clientX
                 clientY = event.touches[0].clientY
-                console.log( {X: clientX, Y: clientY} )
+
                 return {X: clientX, Y: clientY}
             default: break
         }
@@ -86,21 +86,21 @@ class Info extends Component {
     }
 
     onObjectReleaseHandler = () => {
-        let changePos = null
+
         switch ( true ) {
             case ( this.mouseStats.totalDeltaY < -100 ):
-                changePos = TweenLite.to( this.currentDragRef, 0.3, {top: '110%', onComplete: this.setNewButton} )
+                TweenLite.to( this.currentDragRef, 0.3, {top: '110%', onComplete: this.setNewButton} )
                 this.checkCorrectHandler( 'outside', this.props.questionItems[this.state.pos] )
-                console.log( 'placed below' )
+
                 break
             case ( this.mouseStats.totalDeltaY > 100 ):
-                console.log( 'placed above' )
+
                 this.checkCorrectHandler( 'inside', this.props.questionItems[this.state.pos] )
-                changePos = TweenLite.to( this.currentDragRef, 0.3, {top: '-20%', onComplete: this.setNewButton} )
+                TweenLite.to( this.currentDragRef, 0.3, {top: '-20%', onComplete: this.setNewButton} )
                 break
             default:
-                console.log( 'reset' )
-                changePos = TweenLite.to( this.currentDragRef, 0.3, {top: '45%'} )
+
+                TweenLite.to( this.currentDragRef, 0.3, {top: '45%'} )
                 this.setState( {isCorrect: null} )
                 break
         }
@@ -191,9 +191,6 @@ class Info extends Component {
     }
 
     onPageClickHandler = (label) => {
-        console.log ('answer', this.state.answer)
-        console.log ('correct answer', this.props.correctAnswer)
-        console.log ('label',label)
         this.props.setAnswerHandler( this.state.answer, label)
     }
 
@@ -224,17 +221,8 @@ class Info extends Component {
     }
 
     render () {
-        console.log( 'this.state.answer.length ', this.state.answer.length )
-        let current = false
-        let bonusCorrect = false
-        let {buttonLabel, label, bonusLabel, sliderRef} = this.props
-        if ( bonusLabel ) {
-            bonusCorrect = this.props.bonusData[bonusLabel].bonusCorrect
-            console.log( bonusCorrect )
-        }
-        if ( ( this.props.index === this.props.currentIndex || this.props.index === this.props.currentIndex - 1 ) ) { // if current is true
-            current = true;
-        }
+        let {buttonLabel, label, sliderRef} = this.props
+
         return (
             <React.Fragment>
 

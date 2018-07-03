@@ -3,7 +3,7 @@ import React from 'react'
 import TimelineLite from 'gsap/src/uncompressed/TimelineLite.js'
 import 'gsap/src/plugins/DrawSVGPlugin.js'
 
-import {Elastic} from 'gsap/src/uncompressed/easing/EasePack.js'
+// import {Elastic} from 'gsap/src/uncompressed/easing/EasePack.js'
 
 import classes from './missionBar.css'
 

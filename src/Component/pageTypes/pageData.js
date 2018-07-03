@@ -7,8 +7,8 @@ import * as banks from './../../assets/banks/banks'
 import * as bonusIcons from './../../assets/bonus/icons'
 
 import {connect} from 'react-redux'
-import planetStandBlue from '../../assets/planets/planetStandBlue.svg'
-import planetStandPurple from '../../assets/planets/planetStandPurple.svg'
+import planetStandBlue from '../../assets/planets/planetStandBlue.png'
+import planetStandPurple from '../../assets/planets/planetStandPurple.png'
 import finalImage from '../../assets/background/finalScreen.png'
 
 import PrintName from './../../UI/printName/printName'
@@ -24,7 +24,7 @@ class pageData extends Component {
             subTitle: 'Hey there… can you help?',
             paragraph: 'I’m Ringo, guardian of the ring-fence. I’m travelling to planet Robos but I’ve lost all my belongings on the way. Can you help me find them and complete my mission?',
             buttonLabel: 'Get Started',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
         {
@@ -38,7 +38,7 @@ class pageData extends Component {
             subTitle: <span> Glad you’re willing to help <PrintName />, ready to start the mission?</span>,
             subText: 'Select start to begin',
             buttonLabel: 'Start',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
         {
@@ -93,7 +93,7 @@ class pageData extends Component {
             subTitle: 'Brilliant, you\'ve found my suit',
             paragraph: 'Gorgeous colour!!',
             buttonLabel: 'Next Question',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
         //////// Question 2 //////////////
@@ -133,7 +133,7 @@ class pageData extends Component {
             subTitle: 'I love my new hair',
             paragraph: 'I totally rock this look!',
             buttonLabel: 'Continue',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
         {
@@ -174,7 +174,7 @@ class pageData extends Component {
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
             paragraph: <span>This is exciting, you can help me unlock one of my treasured items, let's go.<br />We have 15 seconds.</span>,
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
         {
@@ -237,7 +237,7 @@ class pageData extends Component {
             buttonLabel: 'Next Question',
             unlocked: 'Oh wow, this looks great on me!',
             locked: 'Ah, never mind, let\'s try for the next thing',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
 
@@ -354,7 +354,7 @@ class pageData extends Component {
             subTitle: 'Oh nice, you\'ve found my goggles',
             paragraph: 'Hey, I\'m looking good!!',
             buttonLabel: 'Continue',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
         // Bonus 2 ///////////////////////////////////////////////
@@ -365,7 +365,7 @@ class pageData extends Component {
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
             paragraph: 'Aha, you can help me unlock another one of my treasured items, let\'s go',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
         {
@@ -415,7 +415,7 @@ class pageData extends Component {
             buttonLabel: 'Next Question',
             unlocked: 'Oh yeah, I look awesome',
             locked: 'Ah, never mind, let\'s try the next thing',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
 
@@ -453,7 +453,7 @@ class pageData extends Component {
             subTitle: 'Oooh, you\'ve found my shoes',
             paragraph: 'I\'ll be taking these out for spin tonight!!',
             buttonLabel: 'Next Question',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
 
@@ -526,7 +526,7 @@ class pageData extends Component {
             subTitle: 'Amazing! how cool do I look now?',
             paragraph: 'I feel so fab!!',
             buttonLabel: 'Next Question',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
 
@@ -565,7 +565,7 @@ class pageData extends Component {
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
             paragraph: 'You\'ve got a chance to unlock a lovely new gift for me, let\'s go',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
         {
@@ -618,7 +618,7 @@ class pageData extends Component {
             buttonLabel: 'Next Question',
             unlocked: 'I love my new gift',
             locked: 'Ah, never mind, let\'s go for the next item.',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
         {
@@ -692,7 +692,7 @@ class pageData extends Component {
         //     subTitle: 'Congratulations, you\'ve landed in your new destination',
         //     paragraph: 'Hey, I love this new place !!',
         //     buttonLabel: 'Continue',
-        //     imageHeight: 0.3,
+        //     imageHeight: 0.4,
         //     bottomImage: planetStandBlue,
         // },
         {
@@ -708,7 +708,7 @@ class pageData extends Component {
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
             paragraph: 'I\'ve lost my best buddy, help me find him!! You\'ve got eight seconds to answer.',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
         {
@@ -758,7 +758,7 @@ class pageData extends Component {
             buttonLabel: 'Continue',
             unlocked: 'Nice, I got my best buddy back',
             locked: 'Oh no, I\'m sure we\'ll find my best buddy soon',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
         {
@@ -766,16 +766,16 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Continue',
             subTitle: <span> Thank you <PrintName />, We are all one RBS – one team.</span>,
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             fullScreenImage: finalImage
         },
         {
             type: 'Share',
             centreContent: false,
             buttonLabel: 'Download character',
-            imageHeight: 0.3,
+            imageHeight: 0.4,
             subTitle: 'Download your character',
-            paragraph: 'Once you have downloaded your character, please refer to the \'Add Photo/Video\' instructions on Workplace and share your results.',
+            paragraph: 'Once you have downloaded your character, please refer to the \'Add Photo/Video\' instructions on Workplace and share your results on the intranet or by email.',
             bottomImage: planetStandPurple,
         },
 

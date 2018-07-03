@@ -116,7 +116,7 @@ class PageHolder extends Component {
     render () {
         this.settings = {
             dots: false,
-            infinite: true,
+            infinite: false,
             draggable: false,
             swipe: false,
             accessibility: true,

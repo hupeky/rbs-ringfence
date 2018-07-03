@@ -22,7 +22,6 @@ class Svg extends Component {
         } );
     }
     render () {
-        console.log( MySVG )
         return (
             <React.Fragment>
                 <MySVG /> <br />    

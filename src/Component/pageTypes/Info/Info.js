@@ -36,14 +36,14 @@ class Info extends Component {
                 {this.props.fullScreenImage ?
                     <React.Fragment>
                         <div style={{background: `url(${this.props.fullScreenImage})`, backgroundSize: 'cover', backgroundPosition: 'center center'}} className={classes.fullScreenImage} />
-                        {current ? <Character myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight * 1 ) - 80}px`}} /> : null}
+                        {current ? <Character myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight ) - 80}px`}} /> : null}
                     </React.Fragment>
                     :
                     null}
                 {this.props.bottomImage ?
                     <React.Fragment>
-                        <img style={{height: `${( this.props.windowHeight * 1.2 ) * this.props.imageHeight}px`}} className={classes.bottomImage} alt="" src={this.props.bottomImage} />
-                        {current ? <Character myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight * 1 ) - 80}px`}} /> : null}
+                        <img style={{width:'100%', height: `${( this.props.windowHeight * 1 ) * this.props.imageHeight}px`}} className={classes.bottomImage} alt="" src={this.props.bottomImage} />
+                        {current ? <Character myStyle={{position: 'absolute', bottom: `${( this.props.windowHeight * this.props.imageHeight ) - 100}px`}} /> : null}
                     </React.Fragment>
                     :
                     null}

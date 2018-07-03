@@ -55,7 +55,7 @@ class name extends Component {
     }
 
     areaChangeHandler ( data ) {
-        console.log( 'data', data )
+
         this.setState( {dropDown: data} )
         if ( this.state.value.length > 0 && data.value.length > 0 ) {
             this.setState( {disabled: false} )
@@ -66,8 +66,6 @@ class name extends Component {
 
     submitNameHandler = ( answer, label ) => {
         this.props.setNameHandler( this.state.value )
-        console.log( 'user select value', this.state.dropDown.value )
-
         /*         const keys = this.dropData.map((item, index) => { // build keys for lookup table in firebase
                     return item.value;
                 })
@@ -79,8 +77,8 @@ class name extends Component {
                 let area = {value: this.state.dropDown.value}
 
                 axios.post('/users.json', area)
-                .then(response => console.log (response))
-                .catch(error => console.log (error)) 
+                .then(response => {return response})
+                .catch(error => {return error}) 
 
 
     }

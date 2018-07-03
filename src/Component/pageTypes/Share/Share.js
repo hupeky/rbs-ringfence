@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import MySVG from './../../../assets/character/charTemp.svgi'
 import convertPNG from 'save-svg-as-png'
 
 import 'innersvg-polyfill'
@@ -37,7 +36,6 @@ class Share extends Component {
         //     background[i].style.opacity = 1
         // }
 
-        console.log( character.innerHTML )
         canvg( document.getElementById( "canvas" ), `<svg version="1.1" id="character" x="0px" y="0px" viewBox="0 0 300 284.1" width="900" height="852"><rect x="-50" y="-50" width="1000" height="1000" style="fill:#3c4983;" />${character.innerHTML} </svg>` )
         let canvas = document.getElementById( "canvas" )
 
@@ -45,7 +43,6 @@ class Share extends Component {
         if ( canvas.msToBlob ) { //for IE
 
             var blob = canvas.msToBlob();
-            console.log( blob )
             window.navigator.msSaveBlob( blob, 'character.png' );
         } else {
             /*   let img = document.createElement( "img" );
@@ -58,16 +55,12 @@ class Share extends Component {
               document.body.appendChild( a );
               a.click();
               document.body.removeChild( a ); */
-            convertPNG.saveSvgAsPng( document.getElementById( "character" ), "test.png",{scale: 3, backgroundColor: 'red'} );
+            convertPNG.saveSvgAsPng( document.getElementById( "character" ), "character.png",{scale: 3, backgroundColor: '#3c4983'} );
 
         }
     }
 
     render () {
-        let current = false;
-        if ( ( this.props.index === this.props.currentIndex ) ) { // if current is true
-            current = true;
-        }
         let {buttonLabel} = this.props
         return (
             <React.Fragment>

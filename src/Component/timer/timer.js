@@ -15,7 +15,6 @@ class timer extends Component {
             this.setState({timeRemaining:this.state.timeRemaining - increment}) 
             if (this.state.timeRemaining === 0) {
                 clearTimeout(this.clock);
-                console.log ('time out from timer')
                 this.props.onTimeOut(true)
             }
         }, increment);              
