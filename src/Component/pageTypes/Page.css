@@ -50,7 +50,7 @@ p {
     width: 90%;
 }
 
-button {
+:global(button) {
     user-select:none;
 }
 

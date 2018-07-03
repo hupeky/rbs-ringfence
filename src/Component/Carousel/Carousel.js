@@ -16,8 +16,8 @@ class Carousel extends Component {
         this.settings = {
             infinite: false,
             draggable: true,
-            dots: true,
-            swipe: true,
+            dots: false,
+            swipe: true, 
             speed: 400,
             nextArrow: <NextArrow visible={true} />,
             prevArrow: <PrevArrow visible={true} />,
