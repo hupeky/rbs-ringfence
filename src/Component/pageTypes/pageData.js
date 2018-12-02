@@ -13,9 +13,6 @@ import finalImage from '../../assets/background/finalScreen.png'
 
 import PrintName from './../../UI/printName/printName'
 
-import swipeUpDown from '../../assets/imgs/swipeUpDown.png'
-
-
 class pageData extends Component {
     static pages = [
         {
@@ -29,6 +26,9 @@ class pageData extends Component {
         },
         {
             type: 'Name',
+            label: 'workArea',
+            question: 'Which area do you work in?',
+            questionNumber: 'question0',
             subTitle: 'Almost forgot, what should I call you?',
             buttonLabel: 'Continue'
         },
@@ -36,8 +36,8 @@ class pageData extends Component {
             type: 'Info',
             centreContent: false,
             subTitle: <span> Glad you’re willing to help <PrintName />, ready to start the mission?</span>,
-            subText: 'Select start to begin',
-            buttonLabel: 'Start',
+            paragraph: 'By answering the questions you will see me change – and become your own version of me – your own Ringo character. At the end you can share who I’ve become with your colleagues – and send them the link to the game – so they can play too.',
+            buttonLabel: 'Click here to begin',
             imageHeight: 0.4,
             bottomImage: planetStandBlue,
         },
@@ -51,6 +51,7 @@ class pageData extends Component {
         {
             type: 'PickAListQuestion',
             question: 'What is ring-fencing intended to do?',
+            questionNumber: 'question1',
             subText: 'Click all that you think apply:',
             label: 'whatRingFence',
             item: 'suitGroup',
@@ -100,6 +101,7 @@ class pageData extends Component {
         {
             type: 'PickAListQuestion',
             question: 'When does ring-fencing come into effect?',
+            questionNumber: 'question2',
             subText: 'Select the date you think is correct, then confirm:',
             singleSelect: true,
             item: 'hairGroup',
@@ -143,7 +145,8 @@ class pageData extends Component {
         //////// Question 3 //////////////
         {
             type: 'PickAListQuestion',
-            question: 'How many licensed banks will be inside the ring-fence once it\'s in place?',
+            question: 'How many licensed banks within the RBS Group will be inside the ring-fence once it’s in place?',
+            questionNumber: 'question3',
             subText: 'Click the number of planets you think the number is:',
             label: 'howManyBanks',
             questionItems: [
@@ -162,7 +165,7 @@ class pageData extends Component {
             label: 'howManyBanks',
             preWrong: 'Not quite right!',
             preRight: 'Correct!',
-            answer: 'There will be 5 licensed banks within the ring-fence, with the most employees sitting within NatWest Bank Plc',
+            answer: 'There will be 5 licensed banks within the ring-fence, with most of our colleagues sitting within NatWest Bank Plc.',
             buttonLabel: 'Continue',
         },
 
@@ -173,7 +176,7 @@ class pageData extends Component {
             centreContent: false,
             buttonLabel: 'Go',
             subTitle: 'Bonus round',
-            paragraph: <span>This is exciting, you can help me unlock one of my treasured items, let's go.<br />We have 15 seconds.</span>,
+            paragraph: <span>This is exciting, you can help me unlock one of my treasured items, let's go.<br />We have 20 seconds.</span>,
             imageHeight: 0.4,
             bottomImage: planetStandPurple,
         },
@@ -181,9 +184,10 @@ class pageData extends Component {
             bonusQuestion: true,
             centreContent: true,
             icon: bonusIcons.bonus1SVG,
-            bonusTime: 15000,
+            bonusTime: 20000,
             bonusLabel: 'bonus1',
             question: 'Can you list all 5 banks INSIDE the ring-fence?',
+            questionNumber: 'bonus1',
             type: 'PickAListQuestion',
             label: 'selectAll5',
             item: 'headwearGroup',
@@ -220,7 +224,7 @@ class pageData extends Component {
             label: 'selectAll5',
             bonusLabel: 'bonus1',
             subTitle: 'More info',
-            paragraph: <span>The banks inside the ring-fence are: The Royal Bank of Scotland plc, National Westminster Bank Plc, Ulster Bank Ireland DAC, Ulster Bank Limited, Coutts and Company<br /><br /><b>Did you know: </b>Adam and Company are not a licensed bank but are in fact a brand? You can find more information on this on the intranet. </span>,
+            paragraph: <span>The 5 banks inside the ring-fence are:  The Royal Bank of Scotland plc, National Westminster Bank Plc, Coutts and Co, Ulster Bank Ireland DAC and Ulster Bank Limited.<br /><br /><b>Did you know: </b>Adam and Company are not a licensed bank but are in fact a brand? You can find more information on this on the intranet. </span>,
             buttonLabel: 'Continue',
         },
         {
@@ -247,16 +251,16 @@ class pageData extends Component {
             centreContent: true,
             subTitle: 'Which of the following list of brands sit within our ring-fenced bank and which sit outside?',
             paragraph: 'If you think a brand sits inside the ring-fence, drag up on your screen, and if you think a brand sits outside the ring-fence, drag down',
-            buttonLabel: 'Continue',
-            image: swipeUpDown,
+            buttonLabel: 'Click continue to start playing',
         },
         {
             type: 'Drag',
             label: 'dragDrop',
             question: 'Which brands are inside the ring-fence? (Swipe up or down)',
+            questionNumber: 'question4',
             questionItems: [
                 {
-                    label: 'Group 1', image: planets.planet1, value: 'inside', caption: 'This is inside', 
+                    label: 'Group 1', image: planets.planet1, value: 'inside', caption: 'This is inside',
                     group: [
                         'RBS plc',
                         'NatWest Bank Plc',
@@ -290,21 +294,21 @@ class pageData extends Component {
                 {
                     label: 'Group 5', image: planets.planet5, value: 'outside', caption: 'This is outside',
                     group: [
-                        'Coutts Dependencies ',
+                        'Coutts Crown Dependencies',
                         ' Isle of Man Bank'
                     ]
                 },
 
             ],
             buttonType: 'image', // image
-            buttonLabel: 'Confirm?',
+            buttonLabel: 'Continue',
             correctAnswer: [true, true, true, true, true],
         },
         {
             type: 'DragAnswer',
             label: 'dragDrop',
             subTitle: 'Nice try',
-            preWrong: 'Not quite right',
+            preWrong: 'The brands in red previously were not quite right',
             preRight: 'Well done!',
             paragraph: 'These are the brands within the ring-fence: The Royal Bank of Scotland, National Westminster Bank, Ulster Bank, Coutts, Lombard, Child & Co, Adam & Company, Holt\'s, Drummonds',
             buttonLabel: 'Continue',
@@ -319,6 +323,7 @@ class pageData extends Component {
         {
             type: 'PickAListQuestion',
             question: 'What changes will our personal customers notice to their banking services once ring-fencing comes into force?',
+            questionNumber: 'question5',
             subText: 'Click all that you think apply:',
             item: 'eyeGroup',
             availableItems: ['eye1', 'eye2', 'eye3', 'eye4', 'eye5'],
@@ -344,7 +349,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'customersNotice',
             subTitle: 'More info',
-            paragraph: 'There\'ll be no change to how personal bank account holders bank with us or the level of service we provide them. We\'ll still be the same bank they know and are used to dealing with.',
+            paragraph: 'The majority of customers will see no material changes. There\'ll be no change to how personal bank account holders bank with us or the level of service we provide them. We\'ll still be the same bank they know and are used to dealing with.',
             buttonLabel: 'Continue',
         },
         {
@@ -377,7 +382,8 @@ class pageData extends Component {
             bonusTime: 10000,
             type: 'YesNoQuestion',
             label: 'canCollaborate',
-            question: 'Can people in Personal & Business Banking (PBB) collaborate with colleagues in NatWest Markets (NWM)?',
+            question: 'Can people in Personal & Business Banking (PBB) collaborate with colleagues in NatWest Markets?',
+            questionNumber: 'bonus2',
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
             questionItems: [
@@ -398,7 +404,7 @@ class pageData extends Component {
             label: 'canCollaborate',
             bonusLabel: 'bonus2',
             subTitle: 'More info',
-            paragraph: 'Yes, they can, but probably won’t need to do so very often. An example of collaboration is when a PBB employee may need to speak with a colleague in NWM if the PBB customer wants to carry out a Spot FX trade - this is possible as we’re still one RBS, one team.',
+            paragraph: 'Yes, they can, but probably won’t need to do so very often. An example of collaboration is when a PBB employee may need to speak with a colleague in NatWest Markets if the PBB customer wants to carry out a Spot FX trade - this is possible as we’re still one RBS, one team.',
             buttonLabel: 'Continue',
         },
         {
@@ -423,14 +429,15 @@ class pageData extends Component {
 
         {
             type: 'PickAListQuestion',
-            question: 'How are our ring-fencing plans different to our competitors? ',
+            question: 'How are our ring-fencing plans different to our competitors\'?',
+            questionNumber: 'question6',
             subText: 'Click arrows or swipe carousel to select',
             item: 'shoeGroup',
             availableItems: ['shoe1', 'shoe2', 'shoe3', 'shoe4', 'shoe5'],
             label: 'spotDifference',
             questionItems: [
                 {label: 'No difference', image: carousels.carousel1}, // , funny: true if you want to have a funny answer also
-                {label: 'Some difference', image: carousels.carousel2},
+                {label: 'Some differences', image: carousels.carousel2},
                 {label: 'It will all be different ', image: carousels.carousel3},
             ],
             buttonType: 'carousel', // image
@@ -442,7 +449,7 @@ class pageData extends Component {
             label: 'spotDifference',
             preWrong: 'Not quite right on that one',
             preRight: 'Yes, that\'s right!',
-            answer: 'There will be some difference because of our business model. The way in which individual banks are going about ring-fencing depends upon the type of business carried out by those banks, including the business mix between retail and other banking activities, and their current structure. Most won\'t see any changes, and for those who do, we have kept them updated along the way.',
+            answer: 'There will be some differences because of our business model. The way in which individual banks are going about ring-fencing depends on the type of business carried out by those banks, including the business mix between retail and other banking activities, and their current structure. Most of our customers won\'t see any changes, and for those who do, we have kept them updated along the way.',
             buttonLabel: 'Continue',
         },
         {
@@ -451,7 +458,7 @@ class pageData extends Component {
             itemLabel: 'shoes',
             centreContent: false,
             subTitle: 'Oooh, you\'ve found my shoes',
-            paragraph: 'I\'ll be taking these out for spin tonight!!',
+            paragraph: 'I\'ll be taking these out for a spin tonight!!',
             buttonLabel: 'Next Question',
             imageHeight: 0.4,
             bottomImage: planetStandBlue,
@@ -462,9 +469,8 @@ class pageData extends Component {
         {
             type: 'YesNoQuestion',
             label: 'workDifferent',
+            questionNumber: 'question7',
             question: 'Does ring-fencing mean that we\'ll need to work differently?',
-            item: 'shoeGroup',
-            availableItems: ['shoe1', 'shoe2', 'shoe3', 'shoe4', 'shoe5'],
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
             questionItems: [
@@ -489,7 +495,8 @@ class pageData extends Component {
 
         {
             type: 'PickAListQuestion',
-            question: 'Does ring-fencing mean that contracts of employment will change in any way? ',
+            question: 'Does ring-fencing mean that contracts of employment change in any way? ',
+            questionNumber: 'question8',
             subText: 'Click all that you think apply:',
             item: 'patternGroup',
             availableItems: ['pattern1', 'pattern2', 'pattern3', 'pattern4', 'pattern5'],
@@ -516,7 +523,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'contractsChange',
             subTitle: 'More info',
-            paragraph: 'The only changes will be to what\'s called the employer legal entity (i.e. the entity that holds the employee contract). Although for some colleagues, their employer legal entity has not changed at all. If your employer legal entity has changed, you will have received a message in January confirming what this means for you.  In the new structure, the NatWest Bank Plc legal entity will be the main operating company within the ring-fenced group. Conditions of employment, including pay and benefits stay the same. And you\'ll still see the RBS brand on payslips and other communications.',
+            paragraph: 'The only change will be to what\'s called the employer legal entity (i.e. the entity that holds the employee contract). Although for some colleagues, their employer legal entity has not changed at all. If your employer legal entity has changed, you will have received a message in January confirming what this means for you.  In the new structure, the NatWest Bank Plc legal entity will be the main operating company within the ring-fenced group. Conditions of employment, including pay and benefits stay the same. And you\'ll still see the RBS brand on payslips and other communications.',
             buttonLabel: 'Continue',
         },
         {
@@ -535,6 +542,7 @@ class pageData extends Component {
         {
             type: 'YesNoQuestion',
             label: 'canColleagues',
+            questionNumber: 'question9',
             question: 'Can colleagues who work within the ring-fenced bank provide services to the non-ring-fenced bank?',
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
@@ -577,6 +585,7 @@ class pageData extends Component {
             item: 'neckGroup',
             availableItems: ['neck1', 'neck2', 'neck3', 'neck4', 'neck5'],
             question: 'How will Risk work with colleagues inside and outside the ring-fence?',
+            questionNumber: 'bonus3',
             subText: 'Click all that you think apply:',
             label: 'riskWork',
             questionItems: [
@@ -630,7 +639,8 @@ class pageData extends Component {
         {
             type: 'YesNoQuestion',
             label: 'marketTraders',
-            question: 'Can a NatWest Markets (NWM) trader or banker collaborate with colleagues in Commercial & Private Banking (CPB) to deliver a service to customers?',
+            question: 'Can a NatWest Markets trader collaborate with colleagues in Commercial & Private Banking (CPB) to deliver a service to customers?',
+            questionNumber: 'question10',
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
             questionItems: [
@@ -650,7 +660,7 @@ class pageData extends Component {
             label: 'marketTraders',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'NWM employees who work with customers needing products and services that sit inside the ring-fence will work with colleagues in CPB to help them access these . The same would apply if customers need products and services that are available both from inside and outside the ring-fence. For example, 1) a NWM trader can offer Derivatives or FX Options to a CPB customer after referral from a CPB Relationship Manager or, 2) a NWM banker can introduce a Banking or Insurance sector customer to CPB to support the customer\'s day to day payment needs.',
+            paragraph: 'NatWest Markets employees who support customers needing products and services that sit inside the ring-fence will work with colleagues in CPB to help them access these. The same would apply if customers need products and services that are available both from inside and outside the ring-fence. For example, 1) a NatWest Markets trader can offer Derivatives or FX Options to a CPB customer after referral from a CPB Relationship Manager or, 2) NatWest Markets can introduce a Banking or Insurance sector customer to CPB to support the customer\'s day to day payment needs.',
             buttonLabel: 'Continue',
         },
 
@@ -659,6 +669,7 @@ class pageData extends Component {
         {
             type: 'PickAListQuestion',
             question: 'How does ring-fencing affect Commercial & Private Banking (CPB) customers?',
+            questionNumber: 'question11',
             subText: 'Click all that you think apply:',
             label: 'affectCPB',
             questionItems: [
@@ -682,7 +693,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'affectCPB',
             subTitle: 'More info',
-            paragraph: 'Some customers will receive certain products or services from NatWest Markets Plc (NWM), but their main relationship will stay with CPB. For example, Structured Deposits can be offered by NWM to a CPB customer after referral from a CPB Relationship Manager. Access to products may also change, for example,  a Relevant Financial Institution (RFI) customer in CPB who wants a credit card can only have a charge card with the balance repayable within 7 days.',
+            paragraph: 'Some customers will receive certain products or services from NatWest Markets Plc or RBS International, but their main relationship will stay with CPB. For example, Structured Deposits can be offered by NatWest Markets to a CPB customer or prohibited lending may be provided by RBS International after referral from a CPB Relationship Manager and following the standard on-boarding assessment process. Access to products may also change, for example, a Relevant Financial Institution (RFI) customer in CPB who wants a credit card can only have a charge card with the balance repayable within 7 days.',
             buttonLabel: 'Continue',
         },
         // {
@@ -721,6 +732,7 @@ class pageData extends Component {
             type: 'YesNoQuestion',
             label: 'supportFunction',
             question: 'If you work within a support function, like HR, Finance or Legal, can you work across the ring-fence?',
+            questionNumber: 'bonus4',
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
             questionItems: [
@@ -763,6 +775,7 @@ class pageData extends Component {
         },
         {
             type: 'Info',
+            send: true,
             centreContent: false,
             buttonLabel: 'Continue',
             subTitle: <span> Thank you <PrintName />, We are all one RBS – one team.</span>,
@@ -772,10 +785,14 @@ class pageData extends Component {
         {
             type: 'Share',
             centreContent: false,
-            buttonLabel: 'Download character',
+            buttonLabel: 'Download your Ringo character',
             imageHeight: 0.4,
-            subTitle: 'Download your character',
-            paragraph: 'Once you have downloaded your character, please refer to the \'Add Photo/Video\' instructions on Workplace and share your results on the intranet or by email.',
+            subTitle: 'You are looking good',
+            paragraph: <React.Fragment>
+                <li>Why not share your character and the link to the game with your colleagues. It’s easy to do – you can either do it via Workplace or just send an email. </li>
+                <li>Please refer to the ‘add photo/ video’ instructions on Workplace to share. </li>
+                <li>And visit the Ring-fencing intranet pages for more information.</li>
+            </React.Fragment>,
             bottomImage: planetStandPurple,
         },
 

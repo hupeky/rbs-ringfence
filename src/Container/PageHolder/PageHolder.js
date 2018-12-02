@@ -46,11 +46,13 @@ class PageHolder extends Component {
 
     componentWillMount () {
         let numOfPages = 0
+        let processedQuestionData = {}
         pageData.pages.forEach( ( page, index ) => {
             numOfPages++
             if ( page.question ) {
                 let questionData = {
                     label: page.label,
+                    questionNumber: page.questionNumber,
                     correctAnswer: page.correctAnswer,
                     answer: [],
                     isCorrect: null,
@@ -60,6 +62,12 @@ class PageHolder extends Component {
                 }
                 this.props.setQuestionDataHandler( questionData )
                 this.props.setNumberOfPages( numOfPages )
+                processedQuestionData[page.questionNumber] = {
+                    correct: 0,
+                    percentageCorrect: 0,
+                    question: page.question,
+                }
+
             }
 
             if ( page.bonusQuestion ) {
@@ -89,6 +97,7 @@ class PageHolder extends Component {
             }
 
         } )
+        console.log (processedQuestionData)
 
     }
 
@@ -119,7 +128,7 @@ class PageHolder extends Component {
             infinite: false,
             draggable: false,
             swipe: false,
-            accessibility: true,
+            accessibility: false,
             speed: 400,
             nextArrow: <NextArrow visible={false} />,
             prevArrow: <PrevArrow visible={false} />,

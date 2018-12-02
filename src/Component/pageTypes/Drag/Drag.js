@@ -7,8 +7,10 @@ import classes from './Drag.css'
 import PageButton from '../../../UI/pageButton/pageButton'
 import DragButton from '../../../UI/dragButton/dragButton'
 import DragFeedback from '../../../UI/dragFeedback/dragFeedback'
+import DragAreaButton from '../../../UI/dragAreaButton/dragAreaButton'
 
 import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
+import dragArrowsSVG from '../../../assets/imgs/swipeUpDownArrows.svg'
 
 import {TweenLite} from 'gsap'
 
@@ -91,7 +93,6 @@ class Info extends Component {
             case ( this.mouseStats.totalDeltaY < -100 ):
                 TweenLite.to( this.currentDragRef, 0.3, {top: '110%', onComplete: this.setNewButton} )
                 this.checkCorrectHandler( 'outside', this.props.questionItems[this.state.pos] )
-
                 break
             case ( this.mouseStats.totalDeltaY > 100 ):
 
@@ -99,7 +100,6 @@ class Info extends Component {
                 TweenLite.to( this.currentDragRef, 0.3, {top: '-20%', onComplete: this.setNewButton} )
                 break
             default:
-
                 TweenLite.to( this.currentDragRef, 0.3, {top: '45%'} )
                 this.setState( {isCorrect: null} )
                 break
@@ -117,7 +117,8 @@ class Info extends Component {
         updatedCollectedItems.outside = [...this.state.collectedItems.outside]
 
         item.group.forEach( groupItem => {
-            updatedCollectedItems[item.value].push( groupItem )
+            console.log ('groupItem', groupItem)
+            updatedCollectedItems[item.value].push( {label: groupItem, correct: isCorrect} )
         } )
         this.setState( {
             answer: updatedAnswer,
@@ -125,6 +126,13 @@ class Info extends Component {
             feedback: true,
             isCorrect: isCorrect,
         } )
+    }
+
+    buildCollectedItemsHandler ( areaLabel ) {
+        let collectedItems = this.state.collectedItems[areaLabel].map( ( item, index ) => {
+            return <DragAreaButton correct={item.correct} key={index} label={item.label} />
+        } )
+        return collectedItems;
     }
 
     setNewButton = () => {
@@ -213,13 +221,6 @@ class Info extends Component {
         return dragButtonsList;
     }
 
-    buildCollectedItemsHandler ( areaLabel ) {
-        let collectedItems = this.state.collectedItems[areaLabel].map( ( item, index ) => {
-            return <div key={index} className={[classes.collectedItem, classes.fadeIn].join( " " )}>{item}</div>
-        } )
-        return collectedItems;
-    }
-
     render () {
         let {buttonLabel, label, sliderRef} = this.props
 
@@ -227,6 +228,7 @@ class Info extends Component {
             <React.Fragment>
 
                 <div className={classes.dragHolder}>
+                <img className={classes.dragArrowSVG} src={dragArrowsSVG} alt="" />
                     <div className={classes.upper}>
                         <div className={classes.bg} />
                         <div className={[classes.label, classes.upperLabel].join( " " )}>

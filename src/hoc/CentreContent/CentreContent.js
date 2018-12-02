@@ -13,13 +13,13 @@ class centreContent extends Component {
         if ( this.props.centre !== false ) {
             let windowHeight = window.innerHeight;
             let contentHeight = this.contentWrapper.clientHeight
-            let difference = ( ( windowHeight - 50 ) - contentHeight ) / 2
+            let difference = ( ( windowHeight - 50 ) - contentHeight ) / 2.5
 
             if ( difference > 0 ) {
                 this.setState( {marginTop: difference} )
             }
         } else {
-            this.setState( {marginTop: '80px'} )
+            this.setState( {marginTop: '50px'} )
         }
 
     }

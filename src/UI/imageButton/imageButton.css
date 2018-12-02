@@ -12,11 +12,13 @@
 .imageButton img {
     transition:200ms;
     opacity: 0.3;
-    width:100%;   
+    width:85%;   
     padding-left:15%;
     padding-right:15%;
     box-sizing: border-box;
     border-radius: 50%;
+    margin: 0 auto;
+    text-align:center;
 }
 .imageButton p {padding:0;padding-top:3px;margin:0;font-size:13px;height:40px;line-height:1;overflow: hidden}
 

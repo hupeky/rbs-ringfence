@@ -1,4 +1,5 @@
 import * as siteActions from '../actions/siteActions'
+import {updateObject} from '../utility'
 
 const initialState = {
     numOfPages: 10,
@@ -19,18 +20,64 @@ const initialState = {
     },
     isBonus: false,
     nickname: '',
+
+    token: null,
+    userId: null,
+    error: null,
+    loading: false
 }
 
+const authStart = ( state, action ) => {
+    return updateObject( state, { error: null, loading: true } );
+}
 
+const authSuccess = (state, action) => {
+    return updateObject( state, { 
+        token: action.idToken,
+        userId: action.userId,
+        error: null,
+        loading: false
+     } );
+}
 
+const authFail = (state, action) => {
+    return updateObject( state, {
+        error: action.error,
+        loading: false
+    });
+}
+
+const authLogout = (state, action) => {
+    return updateObject(state, { token: null, userId: null });
+};
 
 const siteReducer = ( state = initialState, action ) => {
+
+
     let updatedQuestionData = null
     let updatedBonusData = null
     let updatedItemsData = null
     let correctAnswer = null
     let isCorrect = null
     switch ( action.type ) {
+        // auth reducer methods
+        case siteActions.AUTH_START: return authStart(state, action);
+        case siteActions.AUTH_SUCCESS: return authSuccess(state, action);
+        case siteActions.AUTH_FAIL: return authFail(state, action);
+        case siteActions.AUTH_LOGOUT: return authLogout(state, action);
+        //////////////////////////
+        case siteActions.SET_WORKAREA:
+        const workArea = action.workArea
+
+        updatedQuestionData = {...state.questionData}
+        updatedQuestionData[action.label].answer = workArea
+        updatedQuestionData[action.label].isCorrect = true
+        updatedQuestionData[action.label].correctAnswer = workArea
+        console.log ('updatedQuestionData', updatedQuestionData)
+        return {
+            ...state,
+            questionData: updatedQuestionData
+        }
         case siteActions.SET_ITEM:
             updatedItemsData = {...state.itemsData}
 
@@ -42,8 +89,8 @@ const siteReducer = ( state = initialState, action ) => {
                 itemsData: updatedItemsData
             }
         case siteActions.SET_BONUS_SELECTED:
-        updatedBonusData = {...state.bonusData}
-        updatedBonusData[action.label].selected = action.item
+            updatedBonusData = {...state.bonusData}
+            updatedBonusData[action.label].selected = action.item
 
             return {
                 ...state,

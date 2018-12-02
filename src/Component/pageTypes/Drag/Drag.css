@@ -61,22 +61,16 @@
     margin:0 auto;
 }
 
-.collectedItem {
-    width:40%;
-    margin:2px 5%;
-    font-size:13px;
-    float:left;
-    padding:5px;
-    box-sizing: border-box;
-    border: solid 1px white;
-    background-color: #6666b3;
-    color: white;
-    border-radius: 8px;
-}
-
 .dragLabel {
     padding:0;
     margin:0;
     margin-bottom:0;
+}
+
+.dragArrowSVG {
+    height:100%;
+    width:100%;
+    position:absolute;
+
 }
 

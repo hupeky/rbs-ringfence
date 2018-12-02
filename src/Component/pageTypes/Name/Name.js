@@ -28,6 +28,7 @@ class name extends Component {
 
     dropData = [
         {value: '', label: 'Select'},
+        {value: 'CommercialPrivateBanking', label: 'Commercial & Private Banking'},
         {value: 'CommunicationsMarketing', label: 'Communications & Marketing'},
         {value: 'CorporateGovernanceRegulatoryAffairs', label: 'Corporate Governance & Regulatory Affairs'},
         {value: 'HumanResources', label: 'Human Resources'},
@@ -36,7 +37,8 @@ class name extends Component {
         {value: 'Legal', label: 'Legal'},
         {value: 'NatWestMarkets', label: 'NatWest Markets'},
         {value: 'PersonalBusinessBanking', label: 'Personal & Business Banking'},
-        {value: 'RiskConductRestructuring', label: 'Risk, Conduct & Restructuring'},
+        {value: 'RBSI', label: 'RBSI'},
+        {value: 'RiskConductRestructuring', label: 'Risk'},
         {value: 'Services', label: 'Services'},
         {value: 'UlsterBank', label: 'Ulster Bank'},
         {value: 'WilliamsGlyn', label: 'Williams & Glyn'}
@@ -64,37 +66,37 @@ class name extends Component {
         }
     }
 
-    submitNameHandler = ( answer, label ) => {
-        this.props.setNameHandler( this.state.value )
-        /*         const keys = this.dropData.map((item, index) => { // build keys for lookup table in firebase
-                    return item.value;
-                })
-        
-                axios.post('/keys.json', keys)
-                .then(response => console.log (response))
-                .catch(error => console.log (error)) */
-
-                let area = {value: this.state.dropDown.value}
-
-                axios.post('/users.json', area)
-                .then(response => {return response})
-                .catch(error => {return error}) 
+    submitNameHandler = ( label ) => {
 
 
+
+        let nickName = this.state.value
+        let workArea = this.state.dropDown.value
+
+        this.props.setNameHandler( nickName )
+        this.props.setWorkAreaHandler( label, workArea )
+
+        axios.post( '/startArea.json', {workArea: workArea} )
+            .then( response => {return response} )
+            .catch( error => {return error} )
+
+        /*  const keys = this.dropData.map((item, index) => { // build keys for lookup table in firebase
+            return {value: item.value, label: item.label}
+        })
+     
+        axios.post('/keys.json', keys)
+        .then(response => console.log (response))
+        .catch(error => console.log (error))  */
     }
 
-
-
-
-
     render () {
-        let {buttonLabel, sliderRef} = {...this.props}
+        let {buttonLabel, sliderRef, label, question} = {...this.props}
         return (
             <React.Fragment>
                 <ContentHolder>
                     <CentreContent force={this.props.currentIndex} centre={this.props.centreContent}>
 
-                        <h4 >Which area do you work in?</h4>
+                        <h4>{question}</h4>
                         <Dropdown options={this.dropData} onChange={( data ) => this.areaChangeHandler( data )} value={this.state.dropDown.label} placeholder="Select an option" />
 
                         {this.props.subTitle ? <h4 className={classes.question}>{this.props.subTitle}</h4> : null}
@@ -103,7 +105,7 @@ class name extends Component {
                     </CentreContent>
                 </ContentHolder>
                 <ButtonHolder>
-                    <PageButton disabled={this.state.disabled} buttonLabel={buttonLabel} click={() => this.submitNameHandler()} sliderRef={sliderRef} nextPage={true} />
+                    <PageButton disabled={this.state.disabled} buttonLabel={buttonLabel} click={() => this.submitNameHandler( label )} sliderRef={sliderRef} nextPage={true} />
                 </ButtonHolder>
 
             </React.Fragment >
@@ -120,6 +122,7 @@ const mapStateToProps = state => { // map redux state to class props
 const mapDispatchToProps = dispatch => {
     return {
         setNameHandler: ( nickname ) => dispatch( {type: siteActions.SET_NICKNAME, nickname: nickname} ),
+        setWorkAreaHandler: ( label, workArea ) => dispatch( {type: siteActions.SET_WORKAREA, label: label, workArea: workArea} )
     }
 }
 

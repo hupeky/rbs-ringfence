@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
+import axios from '../../../hoc/axios'
+
 import classes from '../Page.css'
 
 import PageButton from '../../../UI/pageButton/pageButton'
@@ -21,16 +23,30 @@ class Info extends Component {
         return bonusCorrect ? <h3>{unlocked}</h3> : <h3>{locked}</h3>
     }
 
+    
+    sendQuestionDataHandler (send) {
+        if (send === true) {
+            console.log ('im sending data', this.props.questionData)
+            axios.post( '/answers.json', this.props.questionData )
+            .then( response => {return response} )
+            .catch( error => {return error} )
+        }
+    }
+
     render () {
         let current = false
         let bonusCorrect = false
-        let {buttonLabel, label, bonusLabel, sliderRef, locked, unlocked} = this.props
+        let {buttonLabel, label, bonusLabel, sliderRef, locked, unlocked, send} = this.props
         if ( bonusLabel ) {
             bonusCorrect = this.props.bonusData[bonusLabel].bonusCorrect
         }
         if ( ( this.props.index === this.props.currentIndex || this.props.index === this.props.currentIndex - 1 ) ) { // if current is true
             current = true;
         }
+
+
+
+
         return (
             <React.Fragment>
                 {this.props.fullScreenImage ?
@@ -60,7 +76,7 @@ class Info extends Component {
                 </ContentHolder>
 
                 <ButtonHolder>
-                    <PageButton buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
+                    <PageButton buttonLabel={buttonLabel} click={() => this.sendQuestionDataHandler(send)} sliderRef={sliderRef} nextPage={true} label={label} />
                 </ButtonHolder>
             </React.Fragment>
 
@@ -73,7 +89,8 @@ const mapStateToProps = state => { // map redux state to class props
     return {
         currentIndex: state.currentIndex,
         windowHeight: state.windowHeight,
-        bonusData: state.bonusData
+        bonusData: state.bonusData,
+        questionData: state.questionData
     }
 }
 

@@ -11,16 +11,17 @@ import BonusItem from '../../../UI/bonusItem/bonusItem'
 
 import LockIcon from '../../../assets/bonus/lock/lock'
 
-
+import PageButton from '../../../UI/pageButton/pageButton'
+import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
 
 const bonusItems = ( props ) => {
-    const {bonusLabel, locked, unlocked} = {...props}
+    const {bonusLabel, locked, unlocked, sliderRef, label, buttonLabel } = {...props}
 
     let current = false;
     let bonusItemsList = [null]
     let bonusCorrect = null
 
-    if ( (props.index === props.currentIndex || props.index === props.currentIndex-1)  ) { // if current is true
+    if ( ( props.index === props.currentIndex || props.index === props.currentIndex - 1 ) ) { // if current is true
         current = true;
         bonusItemsList = Object.keys( props.bonusData ).map( ( item, index ) => {
             if ( props.bonusData[item].bonusCorrect === null ) {
@@ -63,6 +64,9 @@ const bonusItems = ( props ) => {
                     </div>
                 </CentreContent>
             </ContentHolder>
+            <ButtonHolder>
+                <PageButton buttonLabel={buttonLabel} sliderRef={sliderRef} nextPage={true} label={label} />
+            </ButtonHolder>
         </React.Fragment>
 
     )
