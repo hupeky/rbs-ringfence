@@ -84,7 +84,7 @@ class pageData extends Component {
             label: 'whatRingFence',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'Ring-fencing legislation means that we must make changes to the way our group is structured and how we operate when working with and providing services to customers. The basic rules are that retail banking services are inside the ring-fence and investment banking services are outside the ring-fence. Some activities, notably banking for larger companies, may be on either side.',
+            paragraph: 'Ring-fencing legislation means that we\'ve had to make changes to the way our group is structured and how we operate when working with and providing services to customers. The basic rules mean that retail banking services are inside the ring-fence and investment banking services are outside the ring-fence. Some activities, notably banking for larger companies, may be on either side.',
             buttonLabel: 'Continue',
         },
         {
@@ -145,7 +145,7 @@ class pageData extends Component {
         //////// Question 3 //////////////
         {
             type: 'PickAListQuestion',
-            question: 'How many licensed banks within the RBS Group will be inside the ring-fence once it’s in place?',
+            question: 'How many licensed banks within the RBS Group are inside the ring-fence?',
             questionNumber: 'question3',
             subText: 'Click the number of planets you think the number is:',
             label: 'howManyBanks',
@@ -165,7 +165,7 @@ class pageData extends Component {
             label: 'howManyBanks',
             preWrong: 'Not quite right!',
             preRight: 'Correct!',
-            answer: 'There will be 5 licensed banks within the ring-fence, with most of our colleagues sitting within NatWest Bank Plc.',
+            answer: 'There are 5 licensed banks within the ring-fence, with most of our colleagues sitting within NatWest Bank Plc.',
             buttonLabel: 'Continue',
         },
 
@@ -322,7 +322,7 @@ class pageData extends Component {
 
         {
             type: 'PickAListQuestion',
-            question: 'What changes will our personal customers notice to their banking services once ring-fencing comes into force?',
+            question: 'What changes have our personal customers noticed to their banking services?',
             questionNumber: 'question5',
             subText: 'Click all that you think apply:',
             item: 'eyeGroup',
@@ -349,7 +349,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'customersNotice',
             subTitle: 'More info',
-            paragraph: 'The majority of customers will see no material changes. There\'ll be no change to how personal bank account holders bank with us or the level of service we provide them. We\'ll still be the same bank they know and are used to dealing with.',
+            paragraph: 'The majority of customers have experienced no material changes. There is no change to how personal bank account holders bank with us or the level of service we provide them. We\'re still the same bank they know and are used to dealing with.',
             buttonLabel: 'Continue',
         },
         {
@@ -382,7 +382,7 @@ class pageData extends Component {
             bonusTime: 10000,
             type: 'YesNoQuestion',
             label: 'canCollaborate',
-            question: 'Can people in Personal & Business Banking (PBB) collaborate with colleagues in NatWest Markets?',
+            question: 'Can people in Personal Banking collaborate with colleagues in NatWest Markets?',
             questionNumber: 'bonus2',
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
@@ -404,7 +404,7 @@ class pageData extends Component {
             label: 'canCollaborate',
             bonusLabel: 'bonus2',
             subTitle: 'More info',
-            paragraph: 'Yes, they can, but probably won’t need to do so very often. An example of collaboration is when a PBB employee may need to speak with a colleague in NatWest Markets if the PBB customer wants to carry out a Spot FX trade - this is possible as we’re still one RBS, one team.',
+            paragraph: 'Yes, they can, but probably won’t need to do so very often. An example of collaboration is when a Personal Banking employee may need to speak with a colleague in NatWest Markets if the Personal customer wants to carry out a Spot FX trade - this is possible as we’re still one RBS, one team.',
             buttonLabel: 'Continue',
         },
         {
@@ -429,7 +429,7 @@ class pageData extends Component {
 
         {
             type: 'PickAListQuestion',
-            question: 'How are our ring-fencing plans different to our competitors\'?',
+            question: 'Were our ring-fencing plans different to our competitors\'?',
             questionNumber: 'question6',
             subText: 'Click arrows or swipe carousel to select',
             item: 'shoeGroup',
@@ -438,7 +438,7 @@ class pageData extends Component {
             questionItems: [
                 {label: 'No difference', image: carousels.carousel1}, // , funny: true if you want to have a funny answer also
                 {label: 'Some differences', image: carousels.carousel2},
-                {label: 'It will all be different ', image: carousels.carousel3},
+                {label: 'It has all been different ', image: carousels.carousel3},
             ],
             buttonType: 'carousel', // image
             buttonLabel: 'Confirm',
@@ -449,7 +449,7 @@ class pageData extends Component {
             label: 'spotDifference',
             preWrong: 'Not quite right on that one',
             preRight: 'Yes, that\'s right!',
-            answer: 'There will be some differences because of our business model. The way in which individual banks are going about ring-fencing depends on the type of business carried out by those banks, including the business mix between retail and other banking activities, and their current structure. Most of our customers won\'t see any changes, and for those who do, we have kept them updated along the way.',
+            answer: 'There will be some differences because of our business model. The way in which individual banks have carried out ring-fencing has depended on the type of business conducted by those banks, including the business mix between retail and other banking activities, and their structure. Most of our customers have experienced no material changes, and for those who have, we kept them updated along the way.',
             buttonLabel: 'Continue',
         },
         {
@@ -470,7 +470,7 @@ class pageData extends Component {
             type: 'YesNoQuestion',
             label: 'workDifferent',
             questionNumber: 'question7',
-            question: 'Does ring-fencing mean that we\'ll need to work differently?',
+            question: 'Does ring-fencing mean that we\'ll work differently?',
             correctAnswer: [true],
             subText: 'Select yes or no to continue',
             questionItems: [
@@ -483,7 +483,7 @@ class pageData extends Component {
             label: 'workDifferent',
             centreContent: true,
             subTitle: 'Oooops, trick question. The answer is yes and no.',
-            paragraph: 'We\'re all still part of RBS Group and there will be no changes to our ambition. However, there will be some administrative changes needed to meet ring-fencing requirements. For example, we\'ll change our internal operations, systems and processes to comply with ring-fencing rules.',
+            paragraph: 'We\'re all still part of RBS Group and there\'s no changes to our ambition. However, there have been some administrative changes we needed to make to meet ring-fencing requirements. For example, we changed our internal operations, systems and processes to comply with ring-fencing rules.',
             buttonLabel: 'Continue',
         },
         {
@@ -498,7 +498,7 @@ class pageData extends Component {
             question: 'Does ring-fencing mean that contracts of employment change in any way? ',
             questionNumber: 'question8',
             subText: 'Click all that you think apply:',
-            item: 'patternGroup',
+            item: 'patternGroup',   
             availableItems: ['pattern1', 'pattern2', 'pattern3', 'pattern4', 'pattern5'],
             label: 'contractsChange',
             questionItems: [
@@ -660,7 +660,7 @@ class pageData extends Component {
             label: 'marketTraders',
             centreContent: true,
             subTitle: 'More info',
-            paragraph: 'NatWest Markets employees who support customers needing products and services that sit inside the ring-fence will work with colleagues in CPB to help them access these. The same would apply if customers need products and services that are available both from inside and outside the ring-fence. For example, 1) a NatWest Markets trader can offer Derivatives or FX Options to a CPB customer after referral from a CPB Relationship Manager or, 2) NatWest Markets can introduce a Banking or Insurance sector customer to CPB to support the customer\'s day to day payment needs.',
+            paragraph: 'NatWest Markets employees who support customers needing products and services that sit inside the ring-fence work with colleagues in CPB to help them access these. The same would apply if customers need products and services that are available both from inside and outside the ring-fence. For example, 1) a NatWest Markets trader can offer Derivatives or FX Options to a CPB customer after referral from a CPB Relationship Manager or, 2) NatWest Markets can introduce a Banking or Insurance sector customer to CPB to support the customer\'s day to day payment needs.',
             buttonLabel: 'Continue',
         },
 
@@ -693,7 +693,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'affectCPB',
             subTitle: 'More info',
-            paragraph: 'Some customers will receive certain products or services from NatWest Markets Plc or RBS International, but their main relationship will stay with CPB. For example, Structured Deposits can be offered by NatWest Markets to a CPB customer or prohibited lending may be provided by RBS International after referral from a CPB Relationship Manager and following the standard on-boarding assessment process. Access to products may also change, for example, a Relevant Financial Institution (RFI) customer in CPB who wants a credit card can only have a charge card with the balance repayable within 7 days.',
+            paragraph: 'Some customers receive certain products or services from NatWest Markets Plc or RBS International, but their main relationship will stay with CPB. For example, Structured Deposits can be offered by NatWest Markets to a CPB customer or prohibited lending may be provided by RBS International after referral from a CPB Relationship Manager and following the standard on-boarding assessment process. Access to products may also change, for example, a Relevant Financial Institution (RFI) customer in CPB who wants a credit card can only have a charge card with the balance repayable within 7 days.',
             buttonLabel: 'Continue',
         },
         // {
@@ -753,7 +753,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'supportFunction',
             subTitle: 'More info',
-            paragraph: 'Colleagues in Services and Function teams will provide some shared services to the whole bank, meaning that, even though employed by NatWest Bank Plc, they can work with colleagues on both sides of the ring-fence. There will be intra-group agreements in place to formally document these arrangements.',
+            paragraph: 'Colleagues in Services and Function teams provide some shared services to the whole bank, meaning that, even though employed by NatWest Bank Plc, they can work with colleagues on both sides of the ring-fence. Intra-group agreements are in place to formally document these arrangements.',
             buttonLabel: 'Continue',
         },
         {
