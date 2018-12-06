@@ -429,7 +429,7 @@ class pageData extends Component {
 
         {
             type: 'PickAListQuestion',
-            question: 'Were our ring-fencing plans different to our competitors\'?',
+            question: 'How have our ring-fencing plans been different to our competitors\'?',
             questionNumber: 'question6',
             subText: 'Click arrows or swipe carousel to select',
             item: 'shoeGroup',
@@ -449,7 +449,7 @@ class pageData extends Component {
             label: 'spotDifference',
             preWrong: 'Not quite right on that one',
             preRight: 'Yes, that\'s right!',
-            answer: 'There will be some differences because of our business model. The way in which individual banks have carried out ring-fencing has depended on the type of business conducted by those banks, including the business mix between retail and other banking activities, and their structure. Most of our customers have experienced no material changes, and for those who have, we kept them updated along the way.',
+            answer: 'There have been some differences because of our business model. The way in which individual banks have carried out ring-fencing has depended on the type of business conducted by those banks, including the business mix between retail and other banking activities, and their structure. Most of our customers have experienced no material changes, and for those who have, we kept them updated along the way.',
             buttonLabel: 'Continue',
         },
         {
@@ -495,7 +495,7 @@ class pageData extends Component {
 
         {
             type: 'PickAListQuestion',
-            question: 'Does ring-fencing mean that contracts of employment change in any way? ',
+            question: 'Does ring-fencing mean that contracts of employment have changed in any way? ',
             questionNumber: 'question8',
             subText: 'Click all that you think apply:',
             item: 'patternGroup',   
@@ -523,7 +523,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'contractsChange',
             subTitle: 'More info',
-            paragraph: 'The only change will be to what\'s called the employer legal entity (i.e. the entity that holds the employee contract). Although for some colleagues, their employer legal entity has not changed at all. If your employer legal entity has changed, you will have received a message in January confirming what this means for you.  In the new structure, the NatWest Bank Plc legal entity will be the main operating company within the ring-fenced group. Conditions of employment, including pay and benefits stay the same. And you\'ll still see the RBS brand on payslips and other communications.',
+            paragraph: 'The only change have been to what\'s called the employer legal entity (i.e. the entity that holds the employee contract). Although for some colleagues, their employer legal entity has not changed at all. If your employer legal entity has changed, you will have received a message in January 2018 confirming what this means for you.  In the new structure, the NatWest Bank Plc legal entity is the main operating company within the ring-fenced group. Conditions of employment, including pay and benefits stay the same. And you\'ll still see the RBS brand on payslips and other communications.',
             buttonLabel: 'Continue',
         },
         {
@@ -674,9 +674,9 @@ class pageData extends Component {
             label: 'affectCPB',
             questionItems: [
                 {label: 'No changes'}, // , funny: true if you want to have a funny answer also
-                {label: 'A change to the brand they will see on literature'},
+                {label: 'A change to the brand they see on literature'},
                 {label: 'Some changes dependant on the products and services they need'},
-                {label: 'Everything will change'}
+                {label: 'Everything has changed'}
             ],
             buttonType: 'list', // image
             buttonLabel: 'Confirm',

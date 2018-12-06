@@ -64,7 +64,6 @@ class PageHolder extends Component {
                 this.props.setNumberOfPages( numOfPages )
                 processedQuestionData[page.questionNumber] = {
                     correct: 0,
-                    percentageCorrect: 0,
                     question: page.question,
                 }
 
