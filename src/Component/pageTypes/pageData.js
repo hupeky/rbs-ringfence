@@ -523,7 +523,7 @@ class pageData extends Component {
             type: 'Info',
             label: 'contractsChange',
             subTitle: 'More info',
-            paragraph: 'The only change have been to what\'s called the employer legal entity (i.e. the entity that holds the employee contract). Although for some colleagues, their employer legal entity has not changed at all. If your employer legal entity has changed, you will have received a message in January 2018 confirming what this means for you.  In the new structure, the NatWest Bank Plc legal entity is the main operating company within the ring-fenced group. Conditions of employment, including pay and benefits stay the same. And you\'ll still see the RBS brand on payslips and other communications.',
+            paragraph: 'The only changes have been to what\'s called the employer legal entity (i.e. the entity that holds the employee contract). Although for some colleagues, their employer legal entity has not changed at all. If your employer legal entity has changed, you will have received a message in January 2018 confirming what this means for you.  In the new structure, the NatWest Bank Plc legal entity is the main operating company within the ring-fenced group. Conditions of employment, including pay and benefits stay the same. And you\'ll still see the RBS brand on payslips and other communications.',
             buttonLabel: 'Continue',
         },
         {
