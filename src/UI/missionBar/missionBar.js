@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TimelineLite from 'gsap/src/uncompressed/TimelineLite.js'
-import 'gsap/src/plugins/DrawSVGPlugin.js'
+import '../../assets/gsap/DrawSVGPlugin'
 
 // import {Elastic} from 'gsap/src/uncompressed/easing/EasePack.js'
 

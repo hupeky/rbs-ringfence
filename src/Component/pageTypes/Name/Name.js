@@ -14,7 +14,7 @@ import ButtonHolder from './../../../hoc/buttonHolder/buttonHolder'
 import PageButton from '../../../UI/pageButton/pageButton'
 
 import Dropdown from 'react-dropdown'
-import 'react-dropdown/style.gcss'
+import '../../../assets/module_css/style.gcss'
 
 class name extends Component {
     state = {

@@ -4,8 +4,8 @@ import Slider from 'react-slick'
 import PrevArrow from '../../UI/prevArrow/prevArrow'
 import NextArrow from '../../UI/nextArrow/nextArrow'
 
-import "slick-carousel/slick/slick.gcss"
-import "slick-carousel/slick/slick-theme.gcss"
+import "../../assets/module_css/slick.gcss"
+import "../../assets/module_css/slick-theme.gcss"
 
 class Carousel extends Component {
     state = {

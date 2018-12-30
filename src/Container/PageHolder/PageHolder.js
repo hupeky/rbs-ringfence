@@ -4,8 +4,8 @@ import Slider from 'react-slick'
 import * as siteActions from '../../store/actions/siteActions'
 import {connect} from 'react-redux'
 
-import "slick-carousel/slick/slick.gcss"
-import "slick-carousel/slick/slick-theme.gcss"
+import "../../assets/module_css/slick.gcss"
+import "../../assets/module_css/slick-theme.gcss"
 
 import Page from '../../Component/pageTypes/Page'
 
